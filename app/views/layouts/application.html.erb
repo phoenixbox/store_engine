@@ -8,27 +8,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
-  <% if flash[:update] %>
-    <div class="alert"><%= flash[:update] %></div>
-  <% end %>
-  <% if flash[:create] %>
-    <div class="alert alert-success"><%= flash[:create] %></div>
-  <% end %>
-  <% if flash[:destroy] %>
-    <div class="alert alert-danger"><%= flash[:destroy] %></div>
-  <% end %>
-</div>
 
-<div class="span1">
-  <ul class="unstyled">
-    <li><%= link_to("Products", products_path)%></li>
-    <li><%= link_to("Categories", categories_path)%></li>
-  </ul>
-</div>
+<%= render partial: "layouts/flash_notices" %>
+
+<%= render partial: "layouts/header_nav" %>
+
 <div class="span8">
   <%= yield %>
 </div>
+
+<%= render partial: "layouts/cart" %>
 
 </body>
 </html>

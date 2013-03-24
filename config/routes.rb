@@ -2,6 +2,9 @@ StoreEngine::Application.routes.draw do
   root :to => 'products#index'
   resources :products
 
+  match 'add_to_cart/:id' => 'Carts#add_to_cart'
+  match 'decrease_count/:id' => 'Carts#decrease_count'
+
   resources :categories
 
     # The priority is based upon order of creation:

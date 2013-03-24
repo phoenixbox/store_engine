@@ -8,7 +8,7 @@
     <%= link_to cat.name, category_path(cat) %>
   <% end %>
 </p>
-
+<%= link_to "Add to Cart", "/add_to_cart/#{@product.id}", class:'btn' %>
 
 <%= link_to("Edit Product", edit_product_path, class:'btn') %>
 <%= link_to("Destroy", product_path(@product), method: 'delete', class:'btn btn-danger') %>
