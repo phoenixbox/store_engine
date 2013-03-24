@@ -1,5 +1,10 @@
 StoreEngine::Application.routes.draw do
-  # The priority is based upon order of creation:
+  root :to => 'products#index'
+  resources :products
+
+  resources :categories
+
+    # The priority is based upon order of creation:
   # first created -> highest priority.
 
   # Sample of regular route:

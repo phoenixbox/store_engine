@@ -3,12 +3,26 @@
 <head>
   <title>StoreEngine</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
+  <%= flash[:update] %>
+  <%= flash[:create] %>
+  <%= flash[:destroy] %>
+</div>
 
-<%= yield %>
+<div class="span1">
+  <ul class="unstyled">
+    <li><%= link_to("Products", products_path)%></li>
+    <li><%= link_to("Categories", categories_path)%></li>
+  </ul>
+</div>
+<div class="span8">
+  <%= yield %>
+</div>
 
 </body>
 </html>
