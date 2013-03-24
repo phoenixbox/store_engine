@@ -9,9 +9,15 @@
 </head>
 <body>
 <div class="container">
-  <%= flash[:update] %>
-  <%= flash[:create] %>
-  <%= flash[:destroy] %>
+  <% if flash[:update] %>
+    <div class="alert"><%= flash[:update] %></div>
+  <% end %>
+  <% if flash[:create] %>
+    <div class="alert alert-success"><%= flash[:create] %></div>
+  <% end %>
+  <% if flash[:destroy] %>
+    <div class="alert alert-danger"><%= flash[:destroy] %></div>
+  <% end %>
 </div>
 
 <div class="span1">

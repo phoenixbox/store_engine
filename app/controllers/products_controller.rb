@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.create(params[:product])
-    flash[:create] = "Great Product"
+    flash[:create] = "#{@product.title} is for Sale!"
     redirect_to product_path(@product)
   end
 
@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     @product.update_attributes(params[:product])
-    flash[:update] = "Product Updated!!"
+    flash[:update] = "#{@product} has been updated!!"
     redirect_to product_path(@product)
   end
 
