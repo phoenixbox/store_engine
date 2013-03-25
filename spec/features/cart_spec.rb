@@ -75,5 +75,97 @@ describe "Shopping Cart" do
       end
     end
 
+    it "should have a checkout button" do 
+      visit product_path(product)
+      click_link "Add to Cart"
+      within( "#shopping_cart" ) do 
+        expect( page ).to have_link "Checkout"
+      end
+    end
+
+  end #--- view context
+
+  context "cart review" do 
+
+    let!(:product) { Product.create(title: "ironing board", price: "100.12", description:"we do ironing boards well", :categories_list => "laundry") }
+
+    it "should have a cart routes" do
+      visit product_path(product)
+      click_link "Add to Cart"
+      click_link "Checkout"
+      expect( current_path ).to eq cart_path
+    end
+
+    it "should list cart contents" do
+      visit product_path(product)
+      click_link "Add to Cart"
+      click_link "Checkout"
+      expect( page ).to have_content product.title
+    end
+
+    it "should not have a checkout link" do
+      visit product_path(product)
+      click_link "Add to Cart"
+      click_link "Checkout"
+      expect( page ).to_not have_link "Checkout"
+      expect( page ).to_not have_selector "#shopping_cart"
+    end
+
+    it "should link to product detail page" do 
+      visit product_path(product)
+      click_link "Add to Cart"
+      click_link "Checkout"
+      expect( page ).to have_link "ironing board"
+    end
+
+    it "should show item price" do 
+      visit product_path(product)
+      click_link "Add to Cart"
+      click_link "Checkout"
+      expect( page ).to have_content "$100.12"
+    end
+
+    it "should have subtotal of 2 items in cart" do
+      visit product_path(product)
+      click_link "Add to Cart"
+      click_link "Checkout"
+      click_link "+"
+      within( "#cart_subtotal" ) do 
+        expect( page ).to have_content "$200.24"
+      end
+    end
+
+    it "should have subtotal of 3 items in cart" do
+      visit product_path(product)
+      click_link "Add to Cart"
+      click_link "Checkout"
+      click_link "+"
+      click_link "+"
+      within( "#cart_subtotal" ) do 
+        expect( page ).to have_content "$300.36"
+      end
+    end
+
+    it "should have a remove button" do
+      visit product_path(product)
+      click_link "Add to Cart"
+      click_link "Checkout"
+      expect( page ).to have_button "Remove"
+    end
+
+    it "should remove product" do
+      visit product_path(product)
+      click_link "Add to Cart"
+      click_link "Checkout"
+      click_button "Remove"
+      expect( page ).to have_content "Total Items: 0"
+    end
+  
   end
 end
+
+
+
+
+
+

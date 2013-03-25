@@ -1,0 +1,29 @@
+<div class="large-8 columns">
+  <h3> Shopping Cart</h3>
+  <p>Total Items: <%= @shopping_cart.count %></p>
+    <% if @shopping_cart.count > 0 %>
+    </br>
+      <% @shopping_cart.each do |product,count| %>
+      <hr>
+          <h4><%= link_to( product.title, product_path(product) )%></h4>
+          <p> <%= button_to "Remove", "#{cart_path}?remove=true&id=#{product.id}", :method => "put" %></p>
+          <p><%= product.description %></p>
+          <p>Quantity: <%= count %>
+          <%= link_to '+',
+          "#{cart_path}?increase=1&id=#{product.id}", 
+          :method => "put", 
+          id:"increase_count"  %> 
+          <%= link_to '-', "#{cart_path}?decrease=1&id=#{product.id}", 
+          :method => "put", id:"decrease_count"  %></p>
+        </br>$<%= product.price %>
+      <% end %>
+
+      <div id="cart_subtotal">
+        <h4>Subtotal</h4>
+        <% subtotal = @shopping_cart.collect do |product, count| %>
+        <% product.price.to_f * count %>
+        <% end.inject(:+) %>
+        $<%= subtotal %>
+      </div>
+    <% end %>
+</div>

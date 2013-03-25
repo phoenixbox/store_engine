@@ -8,12 +8,14 @@
     <% @shopping_cart.each do |product,count| %>
       <li>
         <%= product.title %></br>Quantity:<%= count %>
-        <%= link_to '<i class="icon-plus-sign"></i>'.html_safe, "/add_to_cart/#{product.id}", id:"increase_count"  %>
-        <%= link_to '<i class="icon-minus-sign"></i>'.html_safe, "/decrease_count/#{product.id}", id:"decrease_count"  %>
+        <%= link_to "+", cart_path( increase: 1, id: product.id), method: "put", class:'button', id: "increase_count"  %>
+        <%= link_to "-", cart_path( decrease: 1, id: product.id), method: "put", class:'button', id: "decrease_count"  %>
       </li>
 
     <% end %>
     </ul>
+    <%= link_to( "Checkout", cart_path ) %>
   <% end %>
+
 </div>
 <% end %>

@@ -1,15 +1,28 @@
 class CartsController < ApplicationController
 
-  def add_to_cart
-    product = Product.find(params[:id])
-    session[:shopping_cart][product.id] += 1
-    redirect_to(:back)
+  def show
   end
 
-  def decrease_count
+  def update
     product = Product.find(params[:id])
-    session[:shopping_cart][product.id] -= 1
-    redirect_to(:back)
+    remove(product.id) if params[:remove] == "true"
+    increase(product.id,params[:increase].to_i) if params[:increase].to_i > 0
+    decrease(product.id,params[:decrease].to_i) if params[:decrease].to_i > 0
+    redirect_to :back
   end
+
+  private
+
+    def decrease(id,count)
+      session[:shopping_cart][id] -= count
+    end
+
+    def increase(id,count)
+      session[:shopping_cart][id] += count
+    end
+
+    def remove(id)
+      session[:shopping_cart][id] = 0
+    end
 
 end

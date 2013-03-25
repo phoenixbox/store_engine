@@ -16,13 +16,8 @@
     <%= render partial: "layouts/header_nav" %>
   </div>
 
-  <div class="large-8 columns">
-    <%= yield %>
-  </div>
-
-  <div class="large-2 columns">
-    <%= render partial: "layouts/cart" %>
-  </div>
+<%= yield %>
+ 
 </div>
 
 <%= javascript_include_tag "application" %>
