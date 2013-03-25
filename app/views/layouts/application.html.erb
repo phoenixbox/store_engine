@@ -11,16 +11,18 @@
 
 <%= render partial: "layouts/flash_notices" %>
 
-<div class="large-2 columns">
-  <%= render partial: "layouts/header_nav" %>
-</div>
+<div class="row">
+  <div class="large-2 columns">
+    <%= render partial: "layouts/header_nav" %>
+  </div>
 
-<div class="large-8 columns">
-  <%= yield %>
-</div>
+  <div class="large-8 columns">
+    <%= yield %>
+  </div>
 
-<div class="large-2 columns">
-  <%= render partial: "layouts/cart" %>
+  <div class="large-2 columns">
+    <%= render partial: "layouts/cart" %>
+  </div>
 </div>
 
 <%= javascript_include_tag "application" %>
