@@ -1,4 +1,4 @@
-<% if @shopping_cart %>
+<% if params[:controller] == "products" || params[:controller] == "categories" %>
 <div id="shopping_cart">
   <h3> Shopping Cart</h3>
   Total Items: <%= @shopping_cart.count %>

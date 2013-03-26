@@ -4,23 +4,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title><%= content_for?(:title) ? yield(:title) : "Honey-Can-Do Store" %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "vendor/custom.modernizr" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+  <style>
+  .header_nav {
+  opacity: .93;
+  background: #fff;
+  padding-top: 10px;
+  }
+
+  ul#header{
+    float:right;
+  }
+
+  ul#header, li {
+  display: inline;
+  list-style-type: none;
+  }
+</style>
+
 </head>
 <body>
 
-<%= render partial: "layouts/flash_notices" %>
 
-<div class="row">
-  <div class="large-2 columns">
+<div class="row-fluid">
+  <div class="span9">
     <%= render partial: "layouts/header_nav" %>
   </div>
-
-<%= yield %>
- 
+  <div class="span3">
+    <%= render partial: 'layouts/cart' %>
+  </div>
+</div>
+<div class="row-fluid">
+  <div class="container">
+  <%= render partial: "layouts/flash_notices" %>
+  </div>
+  <div class="span12">
+    <%= yield %>
+  </div>
 </div>
 
-<%= javascript_include_tag "application" %>
+<div class="container"></div>
+<div class="container">
+  <hr>
+  <%= params.inspect if Rails.env.development? %>
+</div>
 </body>
 </html>
 

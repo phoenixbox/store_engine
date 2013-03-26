@@ -1,4 +1,4 @@
-<div class="large-8 columns">
+<div class="">
 
   <h1><%= @product.title %></h1>
 
@@ -15,7 +15,4 @@
   <%= link_to("Edit Product", edit_product_path, class:'button') %>
   <%= link_to("Destroy", product_path(@product), method: 'delete', class:'button') %>
 
-</div>
-<div class="large-2 columns">
-  <%= render partial: "layouts/cart" %>
 </div>
