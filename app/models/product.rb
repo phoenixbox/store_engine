@@ -2,6 +2,9 @@ class Product < ActiveRecord::Base
   attr_accessible :description, :price, :title, :categories_list
   has_many :taggings
   has_many :categories, through: :taggings
+  validates :title, :presence => true
+  validates :price, :presence => true
+  validates :description, :presence => true
 
   def categories_list
     categories.join(", ")

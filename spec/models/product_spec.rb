@@ -8,5 +8,20 @@ describe Product do
       expect( subject ).to be_valid
     end
 
+    it "should not be valid wihout a title" do
+      subject.title = nil
+      expect( subject ).to be_invalid
+    end
+
+    it "should not be valid wihout a price" do
+      subject.price = nil
+      expect( subject ).to be_invalid
+    end
+
+    it "should not be valid wihout a description" do
+      subject.description = nil
+      expect( subject ).to be_invalid
+    end
+
   end
 end

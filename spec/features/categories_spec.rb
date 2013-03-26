@@ -19,7 +19,7 @@ describe "Categories" do
   context "viewing category" do
 
     it "should show filtered products page" do
-      a = Product.create(title: "Nalgene", description: "Best Water Bottle Ever")
+      a = Product.create(title: "Nalgene", description: "Best Water Bottle Ever", price: "1234")
       a.categories.create(name: "tag1")
       visit categories_path
       click_link "tag1"

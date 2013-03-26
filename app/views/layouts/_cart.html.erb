@@ -1,21 +1,23 @@
-<% if params[:controller] == "products" || params[:controller] == "categories" %>
-<div id="shopping_cart">
-  <h3> Shopping Cart</h3>
-  Total Items: <%= @shopping_cart.count %>
-  <% if @shopping_cart.count > 0 %>
-</br>
-    <ul class="unstyled">
-    <% @shopping_cart.each do |product,count| %>
-      <li>
-        <%= product.title %></br>Quantity:<%= count %>
-        <%= link_to "+", cart_path( increase: 1, id: product.id), method: "put", class:'button', id: "increase_count"  %>
-        <%= link_to "-", cart_path( decrease: 1, id: product.id), method: "put", class:'button', id: "decrease_count"  %>
-      </li>
+<% if @shopping_cart %>
+  <% if params[:controller] == "products" || params[:controller] == "categories" %>
+  <div id="shopping_cart">
+    <h3> Shopping Cart</h3>
+    Total Items: <%= @shopping_cart.count %>
+    <% if @shopping_cart.count > 0 %>
+  </br>
+      <ul class="unstyled">
+      <% @shopping_cart.each do |product,count| %>
+        <li>
+          <%= product.title %></br>Quantity:<%= count %>
+          <%= link_to "+", cart_path( increase: 1, id: product.id), method: "put", class:'button', id: "increase_count"  %>
+          <%= link_to "-", cart_path( decrease: 1, id: product.id), method: "put", class:'button', id: "decrease_count"  %>
+        </li>
 
+      <% end %>
+      </ul>
+      <%= link_to( "Checkout", cart_path ) %>
     <% end %>
-    </ul>
-    <%= link_to( "Checkout", cart_path ) %>
-  <% end %>
 
-</div>
+  </div>
+  <% end %>
 <% end %>
