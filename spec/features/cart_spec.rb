@@ -3,18 +3,18 @@ require 'spec_helper'
 describe "Shopping Cart" do 
 
   context "views" do 
-    it "should be on the index page" do 
+    it "should be on the index page" do
       visit root_path
       expect( page ).to have_content "Shopping Cart"
     end
 
     let!(:product) { Product.create(title: "ironing board", price: "100", description:"we do ironing boards well", :categories_list => "laundry") }
-   
+
     it "should persist on Category#index" do
       visit product_path(product)
       click_link "Add to Cart"
       visit categories_path
-      within( "#shopping_cart" ) do 
+      within( "#shopping_cart" ) do
         expect( page ).to have_content product.title
       end
     end
