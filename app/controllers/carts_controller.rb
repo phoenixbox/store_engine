@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
-
+#before confirmation
+#confirm user is logged in.
   def show
   end
 
@@ -9,6 +10,14 @@ class CartsController < ApplicationController
     increase(product.id,params[:increase].to_i) if params[:increase].to_i > 0
     decrease(product.id,params[:decrease].to_i) if params[:decrease].to_i > 0
     redirect_to :back
+  end
+
+  def confirmation
+    if logged_in?
+      @user = current_user
+    else
+      redirect_back_or_to(login_path)
+    end
   end
 
   private

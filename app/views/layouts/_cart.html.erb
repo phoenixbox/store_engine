@@ -1,18 +1,16 @@
 <% if @shopping_cart %>
   <% if params[:controller] == "products" || params[:controller] == "categories" %>
   <div id="shopping_cart">
-    <h3> Shopping Cart</h3>
+    <h3>Shopping Cart</h3>
     Total Items: <%= @shopping_cart.count %>
     <% if @shopping_cart.count > 0 %>
-  </br>
-      <ul class="unstyled">
+      <ul>
       <% @shopping_cart.each do |product,count| %>
-        <li>
-          <%= product.title %></br>Quantity:<%= count %>
+        <li><%= product.title %>
+        Quantity:<%= count %>
           <%= link_to "+", cart_path( increase: 1, id: product.id), method: "put", class:'button', id: "increase_count"  %>
           <%= link_to "-", cart_path( decrease: 1, id: product.id), method: "put", class:'button', id: "decrease_count"  %>
-        </li>
-
+        </li></br>
       <% end %>
       </ul>
       <%= link_to( "Checkout", cart_path ) %>

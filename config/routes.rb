@@ -1,10 +1,20 @@
 StoreEngine::Application.routes.draw do
+  resources :addresses
+
+
   root :to => 'products#index'
   resources :products
+  resources :categories
+
   resource :cart
+  match 'cart_confirmation' => 'carts#confirmation'
   resources :users
 
-  resources :categories
+  resources :user_sessions, only: [ :new, :create, :destroy ]
+
+  match 'login'  => 'user_sessions#new'
+  match 'logout' => 'user_sessions#destroy'
+
 
     # The priority is based upon order of creation:
   # first created -> highest priority.

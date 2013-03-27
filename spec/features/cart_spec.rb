@@ -158,7 +158,23 @@ describe "Shopping Cart" do
       click_link "Add to Cart"
       click_link "Checkout"
       click_button "Remove"
-      expect( page ).to have_content "Total Items: 0"
+      expect( page ).to have_content "0 items"
+    end
+
+    it "should have a pay now link" do
+      visit product_path(product)
+      click_link "Add to Cart"
+      visit cart_path
+      expect( page ).to have_link "Buy Now"
+    end
+
+    it "unauthenticated users should be redirected to login" do
+      visit product_path(product)
+      click_link "Add to Cart"
+      visit cart_path
+      click_link "Buy Now"
+      expect( page ).to have_content "Username"
+      expect( page ).to have_content "Password"
     end
   
   end

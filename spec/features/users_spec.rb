@@ -14,6 +14,11 @@ describe "Users" do
       expect( page ).to have_content "admin2"
     end
 
+    it "displays a signup link" do
+      visit login_path
+      expect( page ).to have_link "Sign Up"
+    end
+
   end
 
 end

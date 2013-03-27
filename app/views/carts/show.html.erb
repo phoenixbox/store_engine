@@ -1,20 +1,14 @@
-<div class="large-8 columns">
-  <h3> Shopping Cart</h3>
-  <p>Total Items: <%= @shopping_cart.count %></p>
+<div class="span8">
+  <h3> Shopping Cart(<%= @shopping_cart.count %> items)</h3>
     <% if @shopping_cart.count > 0 %>
     </br>
       <% @shopping_cart.each do |product,count| %>
-      <hr>
           <h4><%= link_to( product.title, product_path(product) )%></h4>
-          <p> <%= button_to "Remove", "#{cart_path}?remove=true&id=#{product.id}", :method => "put" %></p>
+          <p><%= button_to "Remove", cart_path(remove: true, id: product.id), :method => "put" %></p>
           <p><%= product.description %></p>
           <p>Quantity: <%= count %>
-          <%= link_to '+',
-          "#{cart_path}?increase=1&id=#{product.id}", 
-          :method => "put", 
-          id:"increase_count"  %> 
-          <%= link_to '-', "#{cart_path}?decrease=1&id=#{product.id}", 
-          :method => "put", id:"decrease_count"  %></p>
+          <%= link_to "+", cart_path( increase: 1, id: product.id), method: "put", class:'button', id: "increase_count"  %>
+          <%= link_to "-", cart_path( decrease: 1, id: product.id), method: "put", class:'button', id: "decrease_count"  %></p>
         </br>$<%= product.price %>
       <% end %>
 
@@ -26,4 +20,5 @@
         $<%= subtotal %>
       </div>
     <% end %>
+      <%=  link_to "Buy Now", cart_confirmation_path, class:"pull-right btn" %>
 </div>

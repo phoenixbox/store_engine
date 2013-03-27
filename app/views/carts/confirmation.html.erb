@@ -1,0 +1,12 @@
+<h1>Confirmation Page</h1>
+
+<p>Shipping</p>
+
+<p>Billing</p>
+
+<p>Credit Card Info</p>
+
+<% @current_user.addresses.each do |add| %>
+<%= add.full_name %>
+
+<% end %>
