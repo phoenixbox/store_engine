@@ -23,26 +23,26 @@ describe Product do
       expect( page ).to have_link "Nalgene Water Bottle"
     end
 
-    it "link to detail page displays details" do 
+    it "link to detail page displays details" do
       Product.create(title: "Nalgene Water Bottle", description:"a really strong water bottle", price:"12345", categories_list:"bottle")
       visit '/'
       click_link "Nalgene Water Bottle"
       expect( page ).to have_content "a really strong water bottle"
-    end 
+    end
 
-    it "should have link to categories" do 
+    it "should have link to categories" do
       visit root_path
       expect( page ).to have_link "Categories"
-    end 
+    end
 
-    it "should create a new product" do 
+    it "should create a new product" do
       visit new_product_path
       fill_in "product_title", :with => "ironing board"
       fill_in "product_price", :with => "100"
       fill_in "product_description", :with => "we do ironing boards well"
       click_button "Create Product"
       expect( page ).to have_content "ironing board"
-    end 
+    end
 
     it "should show the categories associated with the product" do 
       visit new_product_path
@@ -55,7 +55,7 @@ describe Product do
       expect( page ).to have_link "laundry"
     end
 
-    context "editing and updating" do 
+    context "editing and updating" do
       let!(:product) { Product.create(title: "ironing board", price: "100", description:"we do ironing boards well") }
 
       it "product detail should have edit link" do
@@ -63,7 +63,7 @@ describe Product do
         expect( page ).to have_link "Edit Product"
       end
 
-      it "should show the edit product page" do 
+      it "should show the edit product page" do
         visit edit_product_path(product)
         expect(find_field('product_title').value).to eq "ironing board"
       end
