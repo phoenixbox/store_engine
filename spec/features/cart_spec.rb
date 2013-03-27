@@ -176,7 +176,41 @@ describe "Shopping Cart" do
       expect( page ).to have_content "Username"
       expect( page ).to have_content "Password"
     end
+
+    it "should show flash message for unauthenticated users" do
+      visit product_path(product)
+      click_link "Add to Cart"
+      visit cart_path
+      click_link "Buy Now"
+      expect(page).to have_content "Cannot purchase"
+    end
   
+  end
+
+  context "cart persists through login/logout" do 
+    let!(:product) { Product.create(title: "ironing board", price: "100.12", description:"we do ironing boards well", :categories_list => "laundry") }
+    let!(:user) { User.create(email:"admin@admin.com", username:"admin", password:"admin", password_confirmation:"admin")}
+    
+    it "shows products before and after logout/login" do
+      visit login_path
+      fill_in "username", :with => "admin"
+      fill_in "password", :with => "admin"
+      click_button "Login"
+
+      visit product_path(product)
+      click_link "Add to Cart"
+      click_link "logout"
+      
+      visit login_path
+      fill_in "username", :with => "admin"
+      fill_in "password", :with => "admin"
+      click_button "Login"
+      visit cart_path
+
+      expect(page).to have_content "ironing board"
+      expect(page).to have_content "we do ironing boards well"
+      expect(current_path).to eq "/cart"
+    end
   end
 end
 

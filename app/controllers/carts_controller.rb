@@ -9,13 +9,25 @@ class CartsController < ApplicationController
     remove(product.id) if params[:remove] == "true"
     increase(product.id,params[:increase].to_i) if params[:increase].to_i > 0
     decrease(product.id,params[:decrease].to_i) if params[:decrease].to_i > 0
+    if logged_in?
+      create_or_update_cart
+    end
     redirect_to :back
+  end
+
+  def create_or_update_cart
+    if current_user.cart
+      
+    else
+      session[:cart_id] = current_user.create_cart(data:session[:shopping_cart])
+    end
   end
 
   def confirmation
     if logged_in?
       @user = current_user
     else
+      flash.alert = "Please Login, Cannot purchase without logging in."
       redirect_back_or_to(login_path)
     end
   end

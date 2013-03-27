@@ -1,4 +1,7 @@
 <div class="container">
+  <% if flash.alert %>
+    <%= flash.alert %>
+  <% end %>
   <% if flash[:update] %>
     <div class="alert"><%= flash[:update] %></div>
   <% end %>
