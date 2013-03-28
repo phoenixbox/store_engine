@@ -19,7 +19,13 @@ class CartsController < ApplicationController
 
   def confirmation
     if logged_in?
-      @user = current_user
+      order = current_user.orders.create(:status => :pending, :subtotal => 0)
+      # for each item in the cart, find the product object, create a line_item
+      current_user.cart.data.each do |item_id,quantity|
+        product = Product.find(item_id)
+        order.line_items.create(:product_id => product.id, :quantity => quantity, :unit_price_cents => product.price)
+      end
+      redirect_to order_path(order)
     else
       flash.alert = "Please Login, Cannot purchase without logging in."
       redirect_back_or_to(login_path)

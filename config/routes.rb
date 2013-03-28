@@ -5,6 +5,7 @@ StoreEngine::Application.routes.draw do
   root :to => 'products#index'
   resources :products
   resources :categories
+  resources :orders
 
   resource :cart
   match 'cart_confirmation' => 'carts#confirmation'

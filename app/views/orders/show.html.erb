@@ -1,0 +1,25 @@
+<h1>Order Confirmation</h1>
+
+
+<%= @order.inspect %>
+<hr>
+<% @order.line_items.each do |line_item| %>
+</br>
+<hr>
+<%= line_item.inspect %>
+<%= link_to line_item.product.title, product_path(line_item.product) %>
+
+<% end %>
+
+<%= link_to("Pay Now", "#")%>
+
+<!-- on that order display page there are:
+products with quantity ordered and line-item subtotals
+links to each product page
+the current status
+order total price
+date/time order was submitted
+if shipped or cancelled, display a timestamp when that action took place
+if any product is retired:
+they can still access the product page
+they cannot add it to a new cart -->

@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
   attr_accessible :description, :price, :title, :categories_list
   has_many :taggings
   has_many :categories, through: :taggings
+  belongs_to :line_item
   validates :title, :presence => true
   validates :price, :presence => true
   validates :description, :presence => true

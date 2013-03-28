@@ -75,11 +75,11 @@ describe "Shopping Cart" do
       end
     end
 
-    it "should have a checkout button" do 
+    it "should have a View Cart button" do 
       visit product_path(product)
       click_link "Add to Cart"
       within( "#shopping_cart" ) do 
-        expect( page ).to have_link "Checkout"
+        expect( page ).to have_link "View Cart"
       end
     end
 
@@ -92,43 +92,43 @@ describe "Shopping Cart" do
     it "should have a cart routes" do
       visit product_path(product)
       click_link "Add to Cart"
-      click_link "Checkout"
+      click_link "View Cart"
       expect( current_path ).to eq cart_path
     end
 
     it "should list cart contents" do
       visit product_path(product)
       click_link "Add to Cart"
-      click_link "Checkout"
+      click_link "View Cart"
       expect( page ).to have_content product.title
     end
 
-    it "should not have a checkout link" do
+    it "should not have a View Cart link" do
       visit product_path(product)
       click_link "Add to Cart"
-      click_link "Checkout"
-      expect( page ).to_not have_link "Checkout"
+      click_link "View Cart"
+      expect( page ).to_not have_link "View Cart"
       expect( page ).to_not have_selector "#shopping_cart"
     end
 
     it "should link to product detail page" do 
       visit product_path(product)
       click_link "Add to Cart"
-      click_link "Checkout"
+      click_link "View Cart"
       expect( page ).to have_link "ironing board"
     end
 
     it "should show item price" do 
       visit product_path(product)
       click_link "Add to Cart"
-      click_link "Checkout"
+      click_link "View Cart"
       expect( page ).to have_content "$100.12"
     end
 
     it "should have subtotal of 2 items in cart" do
       visit product_path(product)
       click_link "Add to Cart"
-      click_link "Checkout"
+      click_link "View Cart"
       click_link "+"
       within( "#cart_subtotal" ) do 
         expect( page ).to have_content "$200.24"
@@ -138,7 +138,7 @@ describe "Shopping Cart" do
     it "should have subtotal of 3 items in cart" do
       visit product_path(product)
       click_link "Add to Cart"
-      click_link "Checkout"
+      click_link "View Cart"
       click_link "+"
       click_link "+"
       within( "#cart_subtotal" ) do 
@@ -149,14 +149,14 @@ describe "Shopping Cart" do
     it "should have a remove button" do
       visit product_path(product)
       click_link "Add to Cart"
-      click_link "Checkout"
+      click_link "View Cart"
       expect( page ).to have_button "Remove"
     end
 
     it "should remove product" do
       visit product_path(product)
       click_link "Add to Cart"
-      click_link "Checkout"
+      click_link "View Cart"
       click_button "Remove"
       expect( page ).to have_content "0 items"
     end
@@ -165,14 +165,14 @@ describe "Shopping Cart" do
       visit product_path(product)
       click_link "Add to Cart"
       visit cart_path
-      expect( page ).to have_link "Buy Now"
+      expect( page ).to have_link "Checkout"
     end
 
     it "unauthenticated users should be redirected to login" do
       visit product_path(product)
       click_link "Add to Cart"
       visit cart_path
-      click_link "Buy Now"
+      click_link "Checkout"
       expect( page ).to have_content "Username"
       expect( page ).to have_content "Password"
     end
@@ -181,7 +181,7 @@ describe "Shopping Cart" do
       visit product_path(product)
       click_link "Add to Cart"
       visit cart_path
-      click_link "Buy Now"
+      click_link "Checkout"
       expect(page).to have_content "Cannot purchase"
     end
   
