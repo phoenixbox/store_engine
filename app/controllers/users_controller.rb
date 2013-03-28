@@ -44,12 +44,13 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        auto_login(@user)
         flash[:green] = 'User was successfully created.' 
-        format.html { redirect_to @user}
+        format.html { redirect_to @user }
         format.json { render json: @user, status: :created, location: @user }
       else
-        format.html { render action: "new" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        flash[:red] = "Display name is too short"
+        format.html { redirect_to :back }
       end
     end
   end

@@ -19,6 +19,53 @@ describe "Users" do
       expect( page ).to have_link "Sign Up"
     end
 
+  describe 'new user'
+  def sign_up_tom
+    visit new_user_path
+    fill_in 'user_username', :with => "Tom Smith"
+    fill_in 'user_display_name', :with => "Tom"
+    fill_in 'user_email', :with => "tom@tom.com"
+    fill_in 'user_password', :with => "tom"
+    fill_in 'user_password_confirmation', :with => "tom"
+    click_button "Create User"
+  end
+
+    it "has a valid display name" do
+      sign_up_tom
+      expect( page ).to have_content "Username: Tom Smith"
+    end
+
+    it "has an invalid display name (too short)" do
+      visit new_user_path
+      fill_in 'user_username', :with => "Tom Smith"
+      fill_in 'user_display_name', :with => "B"
+      fill_in 'user_email', :with => "tom@tom.com"
+      fill_in 'user_password', :with => "tom"
+      fill_in 'user_password_confirmation', :with => "tom"
+      click_button "Create User"
+      expect( page ).to have_content "Display name is too short"
+    end
+
+    it "has an invalid display name (too long)" do
+      visit new_user_path
+      fill_in 'user_username', :with => "Tom Smith"
+      fill_in 'user_display_name', :with => "tomsmithtomsmithtomsmithtomsmithtomsmithtomsmith"
+      fill_in 'user_email', :with => "tom@tom.com"
+      fill_in 'user_password', :with => "tom"
+      fill_in 'user_password_confirmation', :with => "tom"
+      click_button "Create User"
+      expect( page ).to have_content "Display name is too long"
+    end
+
+    it "has a invalid email (duplicate emails)" do
+      sign_up_tom
+      expect( page ).to have_content "Username: Tom Smith"
+      click_link "logout"
+      sign_up_tom
+      expect( current_path ).to eq new_user_path
+      expect( page ).to have_content "Email Already Exists"
+    end
+
   end
 
 end

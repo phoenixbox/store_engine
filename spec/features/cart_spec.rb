@@ -8,7 +8,7 @@ describe "Shopping Cart" do
       expect( page ).to have_content "Shopping Cart"
     end
 
-    let!(:product) { Product.create(title: "ironing board", price: "100", description:"we do ironing boards well", :categories_list => "laundry") }
+    let!(:product) { Product.create(title: "ironing board", price: "10000", description:"we do ironing boards well", :categories_list => "laundry") }
 
     it "should persist on Category#index" do
       visit product_path(product)
@@ -87,7 +87,7 @@ describe "Shopping Cart" do
 
   context "cart review" do 
 
-    let!(:product) { Product.create(title: "ironing board", price: "100.12", description:"we do ironing boards well", :categories_list => "laundry") }
+    let!(:product) { Product.create(title: "ironing board", price: "10012", description:"we do ironing boards well", :categories_list => "laundry") }
 
     it "should have a cart routes" do
       visit product_path(product)
@@ -198,7 +198,7 @@ describe "Shopping Cart" do
       click_button "Login"
     end
 
-    let!(:product) { Product.create(title: "ironing board", price: "100.12", description:"we do ironing boards well", :categories_list => "laundry") }
+    let!(:product) { Product.create(title: "ironing board", price: "10012", description:"we do ironing boards well", :categories_list => "laundry") }
     let!(:user) { User.create(email:"admin@admin.com", username:"admin", password:"admin", password_confirmation:"admin")}
     
     it "shows products before and after logout/login" do
