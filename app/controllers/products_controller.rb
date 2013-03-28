@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.create(params[:product])
-    flash[:create] = "#{@product.title} is for Sale!"
+    flash[:green] = "#{@product.title} is for Sale!"
     redirect_to product_path(@product)
   end
 
@@ -24,14 +24,14 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     @product.update_attributes(params[:product])
-    flash[:update] = "#{@product} has been updated!!"
+    flash[:yellow] = "#{@product} has been updated!!"
     redirect_to product_path(@product)
   end
 
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
-    flash[:destroy] = "Destroyed product:#{@product.title}"
+    flash[:red] = "Destroyed product:#{@product.title}"
     redirect_to products_path
   end
 

@@ -6,7 +6,7 @@ class UserSessionsController < ApplicationController
     if login(params[:username], params[:password])
       redirect_back_or_to(cart_path, message: 'Logged in successfully.')
     else
-      flash.alert = "Login failed."
+      flash[:red] = "Login failed."
       redirect_to login_path
     end
   end

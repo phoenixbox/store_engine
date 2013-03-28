@@ -27,7 +27,7 @@ class CartsController < ApplicationController
       end
       redirect_to order_path(order)
     else
-      flash.alert = "Please Login, Cannot purchase without logging in."
+      flash[:red] = "Please Login, Cannot purchase without logging in."
       redirect_back_or_to(login_path)
     end
   end
