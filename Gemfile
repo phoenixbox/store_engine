@@ -5,7 +5,8 @@ gem 'sqlite3'
 gem 'jquery-rails'
 gem 'rake'
 gem 'sorcery'
-
+gem 'pry'
+gem 'unicorn'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

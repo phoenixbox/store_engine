@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
 #before confirmation
 #confirm user is logged in.
+
   def show
   end
 
@@ -10,17 +11,10 @@ class CartsController < ApplicationController
     increase(product.id,params[:increase].to_i) if params[:increase].to_i > 0
     decrease(product.id,params[:decrease].to_i) if params[:decrease].to_i > 0
     if logged_in?
-      create_or_update_cart
+      current_user.cart.data = session[:shopping_cart]
+      current_user.cart.save
     end
     redirect_to :back
-  end
-
-  def create_or_update_cart
-    if current_user.cart
-      
-    else
-      session[:cart_id] = current_user.create_cart(data:session[:shopping_cart])
-    end
   end
 
   def confirmation

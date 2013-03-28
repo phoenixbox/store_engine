@@ -187,29 +187,33 @@ describe "Shopping Cart" do
   
   end
 
+  
+
   context "cart persists through login/logout" do 
-    let!(:product) { Product.create(title: "ironing board", price: "100.12", description:"we do ironing boards well", :categories_list => "laundry") }
-    let!(:user) { User.create(email:"admin@admin.com", username:"admin", password:"admin", password_confirmation:"admin")}
-    
-    it "shows products before and after logout/login" do
+
+    def user_logs_in
       visit login_path
       fill_in "username", :with => "admin"
       fill_in "password", :with => "admin"
       click_button "Login"
+    end
+
+    let!(:product) { Product.create(title: "ironing board", price: "100.12", description:"we do ironing boards well", :categories_list => "laundry") }
+    let!(:user) { User.create(email:"admin@admin.com", username:"admin", password:"admin", password_confirmation:"admin")}
+    
+    it "shows products before and after logout/login" do
+      user_logs_in
 
       visit product_path(product)
       click_link "Add to Cart"
       click_link "logout"
       
-      visit login_path
-      fill_in "username", :with => "admin"
-      fill_in "password", :with => "admin"
-      click_button "Login"
+      user_logs_in
+
       visit cart_path
 
       expect(page).to have_content "ironing board"
       expect(page).to have_content "we do ironing boards well"
-      expect(current_path).to eq "/cart"
     end
   end
 end
