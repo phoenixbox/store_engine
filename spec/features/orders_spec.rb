@@ -6,13 +6,14 @@ describe "orders page" do
 
     def user_logs_in
       visit login_path
-      fill_in "username", :with => "admin"
-      fill_in "password", :with => "admin"
+      fill_in "username", :with => "user"
+      fill_in "password", :with => "user"
       click_button "Login"
     end
 
     let!(:product) { Product.create(title: "ironing board", price: "100.12", description:"we do ironing boards well", :categories_list => "laundry") }
-    let!(:user) { User.create(email:"admin@admin.com", username:"admin", password:"admin", password_confirmation:"admin")}
+    let!(:user) { User.create(email:"user@user.com", username:"user", password:"user", password_confirmation:"user")}
+    let!(:user2) { User.create(email:"notuser@user.com", username:"notuser", password:"notuser", password_confirmation:"notuser")}
 
     it "should include the items" do
       user_logs_in
@@ -21,6 +22,28 @@ describe "orders page" do
       visit cart_path
       click_link "Checkout"
       expect( current_path ).to eq '/orders/1'
+    end
+
+    it "should not be visible to any other users" do 
+      user_logs_in
+      visit product_path(product)
+      click_link "Add to Cart"
+      visit cart_path
+      click_link "Checkout"
+      click_link "logout"
+      visit '/orders/1'
+      expect( page ).to_not have_content "Order Confirmation"
+      expect( current_path ).to eq root_path
+      expect( page ).to have_content "Access Denied"
+    end
+
+    it "should have a link back to the cart review" do
+      user_logs_in
+      visit product_path(product)
+      click_link "Add to Cart"
+      visit cart_path
+      click_link "Checkout"
+      expect( page ).to have_link "Back to Cart"
     end
 
     xit "should include the item subtotals" do

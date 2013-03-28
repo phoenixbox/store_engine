@@ -1,14 +1,13 @@
 <div class="container">
-  <% if flash.alert %>
-    <%= flash.alert %>
+  <% if flash[:red] %>
+    <div class="alert alert-danger"><%= flash[:red] %></div>
   <% end %>
-  <% if flash[:update] %>
-    <div class="alert"><%= flash[:update] %></div>
+
+  <% if flash[:yellow] %>
+    <div class="alert"><%= flash[:yellow] %></div>
   <% end %>
-  <% if flash[:create] %>
-    <div class="alert alert-success"><%= flash[:create] %></div>
-  <% end %>
-  <% if flash[:destroy] %>
-    <div class="alert alert-danger"><%= flash[:destroy] %></div>
+  
+  <% if flash[:green] %>
+    <div class="alert alert-success"><%= flash[:green] %></div>
   <% end %>
 </div>
