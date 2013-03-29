@@ -1,0 +1,10 @@
+<table border="1">
+  <th>Number</th>
+  <th>Status</th>
+  <th>Subtotal</th>
+<% @orders.each do |order| %>
+    <tr><td><%= link_to "Order #{order.id}", order_path(order) %></td>
+    <td><%= order.status %></td>
+    <td><%= number_to_currency(order.subtotal/100.00) %></td></tr>
+<% end %>
+</table>

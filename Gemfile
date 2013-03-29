@@ -7,6 +7,7 @@ gem 'rake'
 gem 'sorcery'
 gem 'pry'
 gem 'unicorn'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

@@ -25,7 +25,15 @@ class CartsController < ApplicationController
         product = Product.find(item_id)
         order.line_items.create(:product_id => product.id, :quantity => quantity, :unit_price_cents => product.price)
       end
+      result = []
+      order.line_items.each do |line_item|
+        result << line_item.quantity * line_item.unit_price_cents
+      end
+      order.subtotal = result.inject(:+)
+      order.save!
+
       redirect_to order_path(order)
+
     else
       flash[:red] = "Please Login, Cannot purchase without logging in."
       redirect_back_or_to(login_path)

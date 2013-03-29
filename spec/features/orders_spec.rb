@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "orders page" do
+describe "order page" do
 
-  context "shows current order" do
+  context "while showing current order" do
 
     def user_logs_in
       visit login_path
@@ -46,12 +46,19 @@ describe "orders page" do
       expect( page ).to have_link "Back to Cart"
     end
 
-    xit "should include the item subtotals" do
-
+    def logged_in_user_gets_to_order_page
+      user_logs_in
+      visit product_path(product)
+      click_link "Add to Cart"
+      visit cart_path
+      click_link "Checkout"
     end
 
-    xit "should include the order subtotal" do
-
+    it "should accept complete credit card info" do 
+      logged_in_user_gets_to_order_page
+      expect( page.has_field?('credit_card_number') ).to be_true
+      expect( page.has_field?('expiration_month') ).to be_true
+      expect( page.has_field?('expiration_year') ).to be_true
     end
 
   end

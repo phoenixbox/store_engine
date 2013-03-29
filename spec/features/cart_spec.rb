@@ -184,10 +184,7 @@ describe "Shopping Cart" do
       click_link "Checkout"
       expect(page).to have_content "Cannot purchase"
     end
-  
   end
-
-  
 
   context "cart persists through login/logout" do 
 

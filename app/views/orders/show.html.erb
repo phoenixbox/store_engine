@@ -1,31 +1,31 @@
 <h1>Order Confirmation</h1>
-
-
 Order Status: <%= @order.status.capitalize %>  |   Updated <%= distance_of_time_in_words_to_now(@order.updated_at) %> ago
-<hr>
 <% @order.line_items.each_with_index do |line_item, i| %>
 </br>
 <hr>
   <h5>Item: <%= i + 1 %></h5>
   <ul>
-    <li>title: <%= link_to line_item.product.title, product_path(line_item.product) %></li>
-    <li>quantity: <%= line_item.quantity %></li>
-    <li>unit_price_cents: <%= line_item.unit_price_cents %></li>
-    <li>subtotal: <%= line_item.subtotal %></li>
+    <li>Title: <%= link_to line_item.product.title, product_path(line_item.product) %></li>
+    <li>Quantity: <%= line_item.quantity %></li>
+    <li>Unit Price: <%= number_to_currency(line_item.unit_price_cents/100.0) %></li>
+    <hr>
+    <strong>Subtotal:</strong> <%= number_to_currency(line_item.subtotal/100.0) %>
   </ul>
 
 <% end %>
 
-<%= link_to("Pay Now", "#")%>
-<%= link_to("Back to Cart", cart_path)%>
+<% if @order.status == :pending %>
+  <%= form_tag charges_path do %>
+    <article>
+      <label class="amount">
+        <span>Amount: <%= number_to_currency(@order.subtotal/100.00) %></span>
+      </label>
+    </article>
 
-<!-- on that order display page there are:
-products with quantity ordered and line-item subtotals
-links to each product page
-the current status
-order total price
-date/time order was submitted
-if shipped or cancelled, display a timestamp when that action took place
-if any product is retired:
-they can still access the product page
-they cannot add it to a new cart -->
+    <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="Cart contents"
+            data-amount="<%= @order.subtotal %>"></script>
+  <% end %>
+<% end %>
+<%= link_to("Back to Cart", cart_path)%>
