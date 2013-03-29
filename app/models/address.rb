@@ -1,6 +1,6 @@
 class Address < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :address_line_1, :address_line_2, :city, :full_name, :phone_number, :state, :zipcode
+  attr_accessible :address_line_1, :address_line_2, :city, :full_name, :phone_number, :state, :zipcode, :user
   validates :full_name,      :presence => true
   validates :address_line_1, :presence => true
   validates :city,           :presence => true

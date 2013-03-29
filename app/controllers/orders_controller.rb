@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
     if logged_in? && order.user_id == current_user.id
       @order = order
     else
-      flash[:notice] = "Access Denied"
+      flash[:red] = "Access Denied"
       redirect_to root_path
     end
   end

@@ -6,7 +6,7 @@ describe "orders page" do
 
     def user_logs_in
       visit login_path
-      fill_in "username", :with => "user"
+      fill_in "username", :with => "user@user.com"
       fill_in "password", :with => "user"
       click_button "Login"
     end
@@ -30,7 +30,7 @@ describe "orders page" do
       click_link "Add to Cart"
       visit cart_path
       click_link "Checkout"
-      click_link "logout"
+      click_link "Logout"
       visit '/orders/1'
       expect( page ).to_not have_content "Order Confirmation"
       expect( current_path ).to eq root_path

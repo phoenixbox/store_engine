@@ -31,6 +31,7 @@
 <div class="container">
   <hr>
   <%= params.inspect if Rails.env.development? %>
+  <%= session.inspect if Rails.env.development? %>
 </div>
 </body>
 </html>

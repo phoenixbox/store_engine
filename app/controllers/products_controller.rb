@@ -13,8 +13,13 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.create(params[:product])
-    flash[:green] = "#{@product.title} is for Sale!"
-    redirect_to product_path(@product)
+    if @product.save
+      flash[:green] = "#{@product.title} is for Sale!"
+      redirect_to product_path(@product)
+    else
+      flash[:red] = "fix stuff"
+      redirect_to :back  
+    end
   end
 
   def edit

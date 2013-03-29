@@ -11,15 +11,9 @@
 </p>
 
 <p>
-  <b>Password:</b>
-  <%= @user.password %>
+  <b>Display:</b>
+  <%= @user.display_name %>
 </p>
-
-<p>
-  <b>Password confirmation:</b>
-  <%= @user.password_confirmation %>
-</p>
-
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

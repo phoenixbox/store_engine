@@ -60,10 +60,10 @@ describe "Users" do
     it "has a invalid email (duplicate emails)" do
       sign_up_tom
       expect( page ).to have_content "Username: Tom Smith"
-      click_link "logout"
+      click_link "Logout"
       sign_up_tom
-      expect( current_path ).to eq new_user_path
-      expect( page ).to have_content "Email Already Exists"
+      expect( current_path ).to eq users_path
+      expect( page ).to have_content "Email has already been taken"
     end
 
   end

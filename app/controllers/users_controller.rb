@@ -49,8 +49,8 @@ class UsersController < ApplicationController
         format.html { redirect_to @user }
         format.json { render json: @user, status: :created, location: @user }
       else
-        flash[:red] = "Display name is too short"
-        format.html { redirect_to :back }
+        format.html { render action: "new" }
+        format.json { render json: @user.errors, status: :unprocessable_entity}
       end
     end
   end

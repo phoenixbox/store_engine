@@ -173,7 +173,7 @@ describe "Shopping Cart" do
       click_link "Add to Cart"
       visit cart_path
       click_link "Checkout"
-      expect( page ).to have_content "Username"
+      expect( page ).to have_content "Email"
       expect( page ).to have_content "Password"
     end
 
@@ -206,7 +206,7 @@ describe "Shopping Cart" do
 
       visit product_path(product)
       click_link "Add to Cart"
-      click_link "logout"
+      visit logout_path
       
       user_logs_in
 
