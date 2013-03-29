@@ -14,7 +14,7 @@ Order Status: <%= @order.status.capitalize %>  |   Updated <%= distance_of_time_
 
 <% end %>
 
-<% if @order.status == :pending %>
+<% if @order.status == "pending" %>
   <%= form_tag charges_path do %>
     <article>
       <label class="amount">
