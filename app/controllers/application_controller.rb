@@ -3,6 +3,15 @@ class ApplicationController < ActionController::Base
   
   before_filter :shopping_cart, :only => [:show, :index]
  
+  def require_admin
+    if current_user.admin == true
+      true
+    else
+      flash[:red] = "Only system administrators may access this page"
+      redirect_to login_path
+    end
+  end
+
   private
  
   def shopping_cart

@@ -30,8 +30,12 @@
 
 <div class="container">
   <hr>
-  <%= params.inspect if Rails.env.development? %>
-  <%= session.inspect if Rails.env.development? %>
+  PARAMS:<%= params.inspect if Rails.env.development? %>
+</br>
+<hr>
+  SESSION:<%= session.inspect if Rails.env.development? %>
+<hr>
+  CURRENT_USER:<%= current_user.inspect if Rails.env.development? %>
 </div>
 </body>
 </html>

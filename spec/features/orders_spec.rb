@@ -54,11 +54,12 @@ describe "order page" do
       click_link "Checkout"
     end
 
-    it "should accept complete credit card info" do 
+    xit "should accept complete credit card info" do 
       logged_in_user_gets_to_order_page
-      expect( page.has_field?('credit_card_number') ).to be_true
-      expect( page.has_field?('expiration_month') ).to be_true
-      expect( page.has_field?('expiration_year') ).to be_true
+      expect( current_path ).to eq "/orders/1"
+      find(".stripe-button-el").click_button
+      find("stripe-button-el").click
+      expect( page.has_css?( "stripe-button-el") ).to be_true
     end
 
   end

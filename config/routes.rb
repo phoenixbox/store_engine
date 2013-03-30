@@ -8,6 +8,7 @@ StoreEngine::Application.routes.draw do
   resources :orders
 
   resource :cart
+
   match 'cart_confirmation' => 'carts#confirmation'
   resources :users
 
@@ -19,6 +20,16 @@ StoreEngine::Application.routes.draw do
   resources :charges
 
   match 'success' => 'orders#success'
+
+  # resource :dashboard
+
+  namespace :dashboard do
+    root :to => "dashboards#show"
+    resources :orders
+    resources :line_items
+    resources :products
+    resources :categories
+  end
 
     # The priority is based upon order of creation:
   # first created -> highest priority.
