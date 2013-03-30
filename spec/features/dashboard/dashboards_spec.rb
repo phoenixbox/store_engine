@@ -23,14 +23,14 @@ describe "Dashboard" do
       click_button "Login"
     end
 
-    it "admin dashboard link should be visible to an admin" do 
+    it "dashboard link should be visible to an admin" do 
       login_admin
       visit root_path
       expect( page ).to have_link 'Dashboard'
     end
 
 
-    it "admin dashboard link should not be visible to non-admin user" do 
+    it "dashboard link should not be visible to non-admin user" do 
       login_user
       visit root_path
       expect( page ).to_not have_link 'Dashboard'
@@ -40,7 +40,7 @@ describe "Dashboard" do
       login_admin
       visit root_path
       click_link "Dashboard"
-      expect( current_path ).to eq dashboard_path
+      expect( current_path ).to eq dashboard_root_path
       # expect( page.has_css?('div#cart_confirmation') )
       # expect( page.has_css?('table#dashboard') )
     end
