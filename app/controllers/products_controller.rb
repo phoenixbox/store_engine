@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   
   def index
-    @products = Product.where(:visible => true)
+    @products = Product.where(:visible => true).shuffle[0..20]
   end
 
   def show
