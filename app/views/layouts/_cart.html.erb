@@ -1,33 +1,30 @@
 <% if @shopping_cart %>
   <% if params[:controller] == "products" || params[:controller] == "categories" %>
-  <div id="shopping_cart">
-    <h3>Shopping Cart</h3>
-    Total Items: <%= @shopping_cart.count %>
-    <% if @shopping_cart.count > 0 %>
-      <ul>
+  <li class="active">
+    <a href="<%= cart_path %>" class="">
+      Cart
+      <span class="navbar-unread"><%= @shopping_cart.count %></span>
+    </a>
+      <%- if @shopping_cart.count > 0 %> 
+    <ul>
       <% @shopping_cart.each do |product,count| %>
-        <li><%= product.title %>
-        Quantity:<%= count %>
-          <%= link_to "+", cart_path( increase: 1, id: product.id), method: "put", class:'button', id: "increase_count"  %>
-          <%= link_to "-", cart_path( decrease: 1, id: product.id), method: "put", class:'button', id: "decrease_count"  %>
-        </li></br>
+      <li>
+        <a href="<%= product_path(product)%>"><%= count %> x <%= product.title.to_s[0..22] %>...</a>
+        <ul>
+          <li><%= link_to "increase '+1'", cart_path( increase: 1, id: product.id), method: "put", id: "increase_count"  %></li>
+          <li><%= link_to "decrease '-1'", cart_path( decrease: 1, id: product.id), method: "put", id: "decrease_count"  %></li>
+        </ul>
+      </li>
       <% end %>
-      </ul>
-        <div id="cart_subtotal">
-          <h4>Subtotal</h4>
-          $<%= subtotal(@shopping_cart) %>
-        </div></br>
-        <%= link_to( "View Cart", cart_path ) %></br><hr>
-        <% if logged_in? %>
-          <%= form_tag charges_path do %>
-          <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
-                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                  data-description="Cart contents"
-                  data-amount="<%= subtotal(@shopping_cart).to_f*100 %>"></script>
-          <% end %>
-        <% end %>
-    <% end # @shopping_cart.count > 0 %>
-
-  </div>
+      <li class="divider">.</li>
+      <li class="divider">.</li>
+      <li>
+        <a href="#">Subtotal:$<%= subtotal(@shopping_cart) %></a>
+      </li>
+    </ul> <!-- /Sub menu -->
+    <% end %>
+  </li>
   <% end %>
 <% end %>
+
+

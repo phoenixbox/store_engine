@@ -1,26 +1,40 @@
-<div class="header_nav">
-  <div class="pull-left">
-    <a class="logo" href="/"><img src="http://www.honeycando.com/images/hcd_logo.gif"></a>
-    <ul id="header">
-      <li><%= link_to("Products", products_path)%></li>
-      <li><%= link_to("Categories", categories_path)%></li>
-      <% if logged_in? %>
-        <%if current_user.admin == true %>
-          <li> <%= link_to "Dashboard", '/dashboard' %> </li>
-        <% end %>
-        <li><%= link_to "#{current_user.username.capitalize}'s Account", orders_path %></li>
-        <li><%= link_to "Logout", logout_path %></li>
-      <% else %>
-        <li><%= link_to "Login", login_path %> | <%= link_to "Sign Up", new_user_path %></li>
-      <% end %>
-    </ul>
-  </div>
-  <div>
-    
-  </div>
-  <div class="pull-right">
-    <%= render partial: 'layouts/cart' %>
+<div class="row">
+<div class="container">
+  <div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+      <div class="container">
+        <div class="nav-collapse collapse">
+          <a class="logo" href="/"><img src="http://www.honeycando.com/images/hcd_logo.gif"></a>
+          <ul class="nav">
+            <li><%# add class="active" to this LI if you want the unread span to show up %> 
+              <a href="/">
+                Home
+                <span class="navbar-unread">2</span>
+              </a>
+            </li>
+            <%= render partial: 'layouts/cart' %>
+            <li><%= link_to "Products", products_path, class:""%></li>
+            <li><%= link_to("Categories", categories_path, class:"")%></li>
+
+            <% if logged_in? %>
+              <%if current_user.admin == true %>
+                 <li><%= link_to "Dashboard", dashboard_root_path, class:"" %></li>
+              <% end %>
+                <li><%= link_to "#{current_user.username.capitalize}'s Account", orders_path, class:"" %></li>
+                <li><%= link_to "Logout", logout_path, class:"" %></li>
+            <% else %>
+                <li><%= link_to "Login", login_path, class:"" %></li>
+                <li><%= link_to "Sign Up", new_user_path, class:"" %></li>
+            <% end %>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
   </div>
 </div>
+
+
+
+
 
 
