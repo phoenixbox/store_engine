@@ -6,36 +6,28 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-
+  <style>
+      #speech-input-field {
+        width: 400px;
+        height: 20px;
+        padding: 10px 15px;
+        font-size: 155%;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        outline: 0;
+      }
+    </style>
 
 
 </head>
 <body>
 <div class="navbar">
-  <div class="container">
-    <%= render partial: "layouts/header_nav" %>
-  </div>
-</div> 
-<div class="row">
-  <div class="span2">
-    <div class="container">
-      <ul class="unstyled">
-      <li>small sidebar</li>
-      <li>small sidebar</li>
-      <li>small sidebar</li>
-      <li>small sidebar</li>
-      <li>small sidebar</li>
-      <li>small sidebar</li>
-      <li>small sidebar</li>
-      <li>small sidebar</li>
-      </ul>
-    </div>
-  </div>
-  <div class="span12">
-    <%= render partial: "layouts/flash_notices" %>
-    <%= yield %>
-  </div>
+  <%= logo %>
+  <%= render partial: "layouts/header_nav" %>
 </div>
+<%= render partial: "layouts/flash_notices" %>
+
+<%= yield %>
 
 
 <div class="container">
