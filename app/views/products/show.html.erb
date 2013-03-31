@@ -1,8 +1,9 @@
 <div class="">
 
   <h1><%= @product.title %></h1>
-
-  <p class="lead"><%= @product.description %></p>
+  
+  <p class="lead"><%= image_tag( @product.photo_url ) %></p>
+  <p class="lead"><%= @product.long_description %></p>
   <p class="lead">$<%= @product.price / 100.00 %></p>
   <p>
     Categories:

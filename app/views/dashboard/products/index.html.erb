@@ -1,4 +1,12 @@
 <%= link_to "Add Product", new_dashboard_product_path %>
+<hr>
+<h2>Import Products</h2>
+<%= form_tag import_dashboard_products_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+</br>
+<hr>
 <table border="1">
 <th>Title</th>
 <th>Price</th>
@@ -7,7 +15,7 @@
   <% @products.each do |product| %>
   <tr>
     <td><%= link_to product.title, dashboard_product_path(product) %></td>
-    <td><%= number_to_currency(product.price) %></td>
+    <td><%= number_to_currency(product.price/100.0) %></td>
     <td><%= link_to("Edit Product", edit_dashboard_product_path(product)) %></td>
     <td>  <% if product.visible %>
     <%= link_to("Retire", dashboard_product_path(product), method: 'delete', class:'button') %>
