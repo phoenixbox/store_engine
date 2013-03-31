@@ -1,0 +1,21 @@
+<h2>Edit Category: "<%= @category.name %>" <h2>
+
+
+<%= form_for(@category, :url => dashboard_category_path) do |f| %>
+  <ul>
+  <% @category.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+  <p>
+    <%= f.label :photo_url %><br />
+    <%= f.text_field :photo_url %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<div>
+  <%= image_tag @category.photo_url.to_s %>
+</div>

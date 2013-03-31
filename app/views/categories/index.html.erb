@@ -1,13 +1,11 @@
+<h1>Categories List</h1>
+
 <div class="">
-  <h1>Categories List</h1>
-  <table border="1">
-    <th>Name</th>
     <% @categories.each do |cat| %>
-      <tr>
-        <td>
-          <%= link_to(cat.name, category_path(cat))  %>
-        </td>
-      </tr>
+    <div class="span6" id="category_<%= cat.id %>", style="height:100px;">
+      <div><%= link_to(cat.name, category_path(cat)) %></div>
+      <div><%= image_tag cat.photo_url.to_s, :height => "200px" %></div>
+    </div>
+          
     <% end %>
-  </table>
 </div>

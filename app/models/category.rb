@@ -1,5 +1,5 @@
 class Category < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :photo_url
   has_many :taggings
   has_many :products, through: :taggings
 
