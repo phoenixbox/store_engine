@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130330220856) do
+ActiveRecord::Schema.define(:version => 20130331010618) do
 
   create_table "addresses", :force => true do |t|
     t.string   "full_name"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20130330220856) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "photo_url"
   end
 
   create_table "line_items", :force => true do |t|
@@ -68,10 +69,28 @@ ActiveRecord::Schema.define(:version => 20130330220856) do
   create_table "products", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "price",       :limit => 255
-    t.datetime "created_at",                                   :null => false
-    t.datetime "updated_at",                                   :null => false
-    t.boolean  "visible",                    :default => true
+    t.integer  "price",            :limit => 255
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
+    t.boolean  "visible",                         :default => true
+    t.string   "long_title"
+    t.text     "long_description"
+    t.string   "bullet1"
+    t.string   "bullet2"
+    t.string   "bullet3"
+    t.string   "bullet4"
+    t.string   "bullet5"
+    t.string   "color"
+    t.string   "asin"
+    t.string   "model_number"
+    t.string   "photo_url"
+    t.string   "units"
+    t.integer  "cost_cents"
+    t.string   "length"
+    t.string   "width"
+    t.string   "height"
+    t.string   "weight"
+    t.string   "upc"
   end
 
   create_table "taggings", :force => true do |t|

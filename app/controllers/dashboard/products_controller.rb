@@ -47,6 +47,11 @@ class Dashboard::ProductsController < ApplicationController
     redirect_to :back
   end
 
+  def import
+    Product.import(params[:file])
+    redirect_to dashboard_products_path, notice: "Products imported."
+  end
+
   # def retire
 
   # end
