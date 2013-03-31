@@ -20,4 +20,4 @@ steve = User.create!(username:"Steve Klabnik", display_name:"SkrilleX", email:"d
 
 
 
-At least 10 sample orders, with at least two at each stage of fulfillment (pending, shipped, etc)
+#At least 10 sample orders, with at least two at each stage of fulfillment (pending, shipped, etc)
