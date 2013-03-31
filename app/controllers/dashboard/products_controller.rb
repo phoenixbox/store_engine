@@ -48,6 +48,7 @@ class Dashboard::ProductsController < ApplicationController
   end
 
   def import
+    binding.pry
     Product.import(params[:file])
     redirect_to dashboard_products_path, notice: "Products imported."
   end

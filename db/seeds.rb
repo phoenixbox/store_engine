@@ -5,7 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Product.import('./app/doc/products_for_store_engine.csv')
 
 blair = User.create!(username: "Blair Anderson", display_name:"blair",email:"blair@blair.com", password:"blair", password_confirmation:"blair", admin:1)
 
@@ -18,6 +17,8 @@ frank = User.create!(username: "Franklin Webber",email:"demoXX+franklin@jumpstar
 jeff = User.create!(username: "Jeff Casimir", display_name:"j3",email:"demoXX+jeff@jumpstartlab.com", password:"password", password_confirmation:"password", admin:0)
 
 steve = User.create!(username:"Steve Klabnik", display_name:"SkrilleX", email:"demoXX+steve@jumpstartlab.com", password:"password", password_confirmation:"password", admin:1 )
+file = File.new('./doc/products_for_store_engine.csv')
+Product.import(file)
 
 soft_storage = Category.find_by_name("soft-storage")
 soft_storage.update_attributes(photo_url:soft_storage.products.first.photo_url)
