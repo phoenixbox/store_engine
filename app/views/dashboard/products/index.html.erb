@@ -8,12 +8,18 @@
 </br>
 <hr>
 <table border="1">
+<th>Image</th>
 <th>Title</th>
 <th>Price</th>
 <th></th>
 <th></th>
-  <% @products.each do |product| %>
+  <% @products.each_with_index do |product,i| %>
   <tr>
+    <td>
+      <div class="span1" id="<%= i+1 %>">
+        <%= image_tag product.photo_url.to_s %>
+      </div>
+    </td>
     <td><%= link_to product.title, dashboard_product_path(product) %></td>
     <td><%= number_to_currency(product.price/100.0) %></td>
     <td><%= link_to("Edit Product", edit_dashboard_product_path(product)) %></td>
