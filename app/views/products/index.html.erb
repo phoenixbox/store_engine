@@ -1,11 +1,9 @@
-
-
-  <h1>Products</h1>
-
+<div class="container"
+<h1>Products</h1>
   <% @products.each do |product| %>
-  <%= image_tag(product.photo_url)%>
-  <%= link_to(product.title, product_path(product)) %></br>
-
+  <div class="span3" style="height:450px">
+    <p><%= link_to product.title, product_path(product) %></p>
+    <%= image_tag(product.photo_url)%>
+  </div>
   <% end %>
-
-
+</div>
