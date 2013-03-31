@@ -14,11 +14,17 @@
 
 <div class="container">
    <div class="row span12">
-    <%= render partial: "layouts/header_nav" %>
+    <%= render partial: "layouts/admin_header_nav" %>
     
   </div> 
   <div class="row-fluid">
     <div class="span2">
+      <li><%= link_to "Dashboard", dashboard_root_path %></li>
+     <li><%= link_to("Products", dashboard_products_path)%></li>
+      <li><%= link_to("Categories", dashboard_categories_path)%></li>
+    </br>
+    <hr>
+      <li><%= link_to "Logout", logout_path %></li>
     </div>
     <div class="span10">
       <%= render partial: "layouts/flash_notices" %>
@@ -36,7 +42,7 @@
   SESSION:<%= session.inspect if Rails.env.development? %>
 <hr>
   CURRENT_USER:<%= current_user.inspect if Rails.env.development? %>
-  <hr>
+   <hr>
   CURRENT_PRODUCT:<%= @product.inspect if Rails.env.development? %>
 </div>
 </body>

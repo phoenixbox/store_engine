@@ -9,7 +9,7 @@ Order Status: <%= @order.status.capitalize %>  |   Updated <%= distance_of_time_
   <% @order.line_items.each_with_index do |line_item, i| %>
   <tr>
     <td><%= i + 1 %></td>
-    <td><%= link_to line_item.product.title, product_path(line_item.product) %></td>
+    <td><%= link_to line_item.product.title, dashboard_product_path(line_item.product) %></td>
     <td><%= line_item.quantity %> Unit: (<a href="#">Up</a> | <a href="#">Down</a>)</td>
     <td><%= number_to_currency(line_item.unit_price_cents/100.0) %></td>
     <td><%= number_to_currency(line_item.subtotal/100.0) %></td>

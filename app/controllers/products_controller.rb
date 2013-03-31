@@ -1,43 +1,11 @@
 class ProductsController < ApplicationController
+  
   def index
-    @products = Product.all  
+    @products = Product.where(:visible => true)
   end
 
   def show
     @product = Product.find(params[:id])
-  end
-
-  def new
-    @product = Product.new
-  end
-
-  def create
-    @product = Product.create(params[:product])
-    if @product.save
-      flash[:green] = "#{@product.title} is for Sale!"
-      redirect_to product_path(@product)
-    else
-      flash[:red] = "fix stuff"
-      redirect_to :back  
-    end
-  end
-
-  def edit
-    @product = Product.find(params[:id])
-  end
-
-  def update
-    @product = Product.find(params[:id])
-    @product.update_attributes(params[:product])
-    flash[:yellow] = "#{@product} has been updated!!"
-    redirect_to product_path(@product)
-  end
-
-  def destroy
-    @product = Product.find(params[:id])
-    @product.destroy
-    flash[:red] = "Destroyed product:#{@product.title}"
-    redirect_to products_path
   end
 
 end

@@ -26,9 +26,9 @@ StoreEngine::Application.routes.draw do
   namespace :dashboard do
     root :to => "dashboards#show"
     resources :orders
+    resources :products
     # resources :line_items
-    # resources :products
-    # resources :categories
+    resources :categories
   end
 
     # The priority is based upon order of creation:

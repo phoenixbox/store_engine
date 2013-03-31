@@ -45,6 +45,24 @@ describe "Dashboard" do
       # expect( page.has_css?('table#dashboard') )
     end
 
+    it "should link to products page" do
+      login_admin
+      visit root_path
+      click_link "Dashboard"
+      click_link "Products"
+      expect( current_path ).to eq dashboard_products_path
+    end
+
+   it "should link to categories page" do
+      login_admin
+      visit root_path
+      click_link "Dashboard"
+      click_link "Categories"
+      expect( current_path ).to eq dashboard_categories_path
+    end    
+
+    
+
 
   end
 

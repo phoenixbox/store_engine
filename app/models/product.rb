@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  attr_accessible :description, :price, :title, :categories_list
+  attr_accessible :description, :price, :title, :categories_list, :visible
   has_many :taggings
   has_many :categories, through: :taggings
   belongs_to :line_item
