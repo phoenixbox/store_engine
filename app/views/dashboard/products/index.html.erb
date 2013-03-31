@@ -1,0 +1,20 @@
+<%= link_to "Add Product", new_dashboard_product_path %>
+<table border="1">
+<th>Title</th>
+<th>Price</th>
+<th></th>
+<th></th>
+  <% @products.each do |product| %>
+  <tr>
+    <td><%= link_to product.title, dashboard_product_path(product) %></td>
+    <td><%= number_to_currency(product.price) %></td>
+    <td><%= link_to("Edit Product", edit_dashboard_product_path(product)) %></td>
+    <td>  <% if product.visible %>
+    <%= link_to("Retire", dashboard_product_path(product), method: 'delete', class:'button') %>
+  <% else %>
+    <%= link_to("Re-Activate", dashboard_product_path(product), method: 'delete', class:'button') %>
+  <% end %></td>
+  </tr>
+<% end %>
+</table>
+

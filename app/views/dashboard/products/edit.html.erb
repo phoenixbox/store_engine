@@ -1,4 +1,6 @@
-<%= form_for(@product) do |f| %>
+<h1>Editing Product</h1>
+
+<%= form_for(@product, :url => dashboard_product_path) do |f| %>
   <ul>
   <% @product.errors.full_messages.each do |error| %>
     <li><%= error %></li>
@@ -25,3 +27,5 @@
     <%= f.submit %>
   </p>
 <% end %>
+
+

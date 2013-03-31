@@ -26,8 +26,8 @@ StoreEngine::Application.routes.draw do
   namespace :dashboard do
     root :to => "dashboards#show"
     resources :orders
-    resources :line_items
     resources :products
+    # resources :line_items
     resources :categories
   end
 

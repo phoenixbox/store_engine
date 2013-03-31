@@ -1,0 +1,16 @@
+<div class="header_nav">
+  <div class="pull-left">
+    <a class="logo" href="/"><img src="http://www.honeycando.com/images/hcd_logo.gif"></a>
+    <ul id="header">
+       <h1><%= params[:controller].gsub(/Dashboard/,"").capitalize %></h1>
+    </ul>
+  </div>
+  <div>
+    
+  </div>
+  <div class="pull-right">
+    <%= render partial: 'layouts/cart' %>
+  </div>
+</div>
+
+

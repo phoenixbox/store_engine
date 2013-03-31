@@ -1,0 +1,20 @@
+<div class="">
+
+  <h1><%= @product.title %></h1>
+
+  <p class="lead"><%= @product.description %></p>
+  <p class="lead"><%= number_to_currency(@product.price) %></p>
+  <p>
+    Categories:
+    <% @product.categories.each do |cat| %>
+      <%= link_to cat.name.capitalize, dashboard_category_path(cat) %>
+    <% end %>
+  </p>
+
+  <%= link_to("Edit Product", edit_dashboard_product_path, class:'button') %>
+  <% if @product.visible %>
+    <%= link_to("Retire", dashboard_product_path(@product), method: 'delete', class:'button') %>
+  <% else %>
+    <%= link_to("Re-Activate", dashboard_product_path(@product), method: 'delete', class:'button') %>
+  <% end %>
+</div>
