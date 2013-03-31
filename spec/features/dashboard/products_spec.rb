@@ -13,31 +13,31 @@ describe Product do
         click_button "Login"
       end
       
-      let!(:product) { Product.create(title: "ironing board", price: "100", description:"we do ironing boards well") }
+      let!(:product) { Product.create(title: "ironing board", price: "100", long_description:"we do ironing boards well") }
 
 
     it "should show one product" do 
-      Product.create(title: "Nalgene Water Bottle", description:"a really strong water bottle", price:"12345", categories_list:"bottle")
+      Product.create(title: "Nalgene Water Bottle", long_description:"a really strong water bottle", price:"12345", categories_list:"bottle")
       visit '/'
       expect( page ).to have_content "Nalgene Water Bottle"
     end
 
     it "should show all products" do 
-      Product.create(title: "Macbook Air", description:"a really strong water bottle", price:"12345", categories_list:"computer")
-      Product.create(title: "Pizza Box", description:"a really strong water bottle", price:"12345", categories_list:"pizza")
+      Product.create(title: "Macbook Air", long_description:"a really strong water bottle", price:"12345", categories_list:"computer")
+      Product.create(title: "Pizza Box", long_description:"a really strong water bottle", price:"12345", categories_list:"pizza")
       visit root_path
       expect( page ).to have_content "Macbook Air"
       expect( page ).to have_content "Pizza Box"
     end
 
     it "product title should link to detail page" do 
-      Product.create(title: "Nalgene Water Bottle", description:"a really strong water bottle", price:"12345", categories_list:"bottle")
+      Product.create(title: "Nalgene Water Bottle", long_description:"a really strong water bottle", price:"12345", categories_list:"bottle")
       visit '/'
       expect( page ).to have_link "Nalgene Water Bottle"
     end
 
     it "link to detail page displays details" do
-      Product.create(title: "Nalgene Water Bottle", description:"a really strong water bottle", price:"12345", categories_list:"bottle")
+      Product.create(title: "Nalgene Water Bottle", long_description:"a really strong water bottle", price:"12345", categories_list:"bottle")
       visit '/'
       click_link "Nalgene Water Bottle"
       expect( page ).to have_content "a really strong water bottle"
@@ -53,7 +53,7 @@ describe Product do
       visit new_dashboard_product_path
       fill_in "product_title", :with => "ironing board"
       fill_in "product_price", :with => "100"
-      fill_in "product_description", :with => "we do ironing boards well"
+      fill_in "product_long_description", :with => "we do ironing boards well"
       click_button "Create Product"
       expect( page ).to have_content "ironing board"
     end
@@ -62,7 +62,7 @@ describe Product do
       visit new_dashboard_product_path
       fill_in "product_title", :with => "ironing board"
       fill_in "product_price", :with => "100"
-      fill_in "product_description", :with => "we do ironing boards well"
+      fill_in "product_long_description", :with => "we do ironing boards well"
       fill_in "product_categories_list", :with => "ironing,laundry"
       click_button "Create Product"
       expect( page ).to have_link "Ironing"
@@ -81,7 +81,7 @@ describe Product do
         click_button "Login"
       end
 
-      let!(:product) { Product.create(title: "ironing board", price: "100", description:"we do ironing boards well", categories_list: "laundry") }
+      let!(:product) { Product.create(title: "ironing board", price: "100", long_description:"we do ironing boards well", categories_list: "laundry") }
 
       it "product detail should have edit link" do
         login_admin
@@ -96,7 +96,7 @@ describe Product do
 
       it "should change when updates are submitted" do 
         visit edit_dashboard_product_path(product)
-        fill_in 'product_description', :with => "Hermans Hideaway"
+        fill_in 'product_long_description', :with => "Hermans Hideaway"
         click_button "Update Product"
         expect( page ).to have_content "Hermans Hideaway"
       end
