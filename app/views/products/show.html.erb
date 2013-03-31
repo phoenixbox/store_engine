@@ -12,7 +12,4 @@
   </p>
   <%= link_to "Add to Cart", "#{cart_path}?increase=1&id=#{@product.id}", :method => "put", class:'button' %>
 
-  <%= link_to("Edit Product", edit_product_path, class:'button') %>
-  <%= link_to("Destroy", product_path(@product), method: 'delete', class:'button') %>
-
 </div>

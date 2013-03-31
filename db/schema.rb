@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130329231446) do
+ActiveRecord::Schema.define(:version => 20130330220856) do
 
   create_table "addresses", :force => true do |t|
     t.string   "full_name"
@@ -69,8 +69,9 @@ ActiveRecord::Schema.define(:version => 20130329231446) do
     t.string   "title"
     t.text     "description"
     t.integer  "price",       :limit => 255
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+    t.boolean  "visible",                    :default => true
   end
 
   create_table "taggings", :force => true do |t|
