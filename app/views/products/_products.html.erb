@@ -1,0 +1,6 @@
+<% products.each_with_index do |product,i| %>
+  <div class="span4" id="<%= i+1 %>" style="height:300px;overflow:hidden;">
+    <p><%= link_to product.title, product_path(product) %></p>
+    <%= image_tag(product.photo_url)%>
+  </div>
+<% end %>
