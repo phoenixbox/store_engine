@@ -1,7 +1,5 @@
 class CartsController < ApplicationController
-#before confirmation
-#confirm user is logged in.
-
+#before each, reject empty
   def show
   end
 

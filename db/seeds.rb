@@ -19,8 +19,16 @@ jeff = User.create!(username: "Jeff Casimir", display_name:"j3",email:"demoXX+je
 steve = User.create!(username:"Steve Klabnik", display_name:"SkrilleX", email:"demoXX+steve@jumpstartlab.com", password:"password", password_confirmation:"password", admin:1 )
 
 file = File.new('./doc/products_for_store_engine.csv')
-Product.import(file)
 
+
+CSV.foreach(file.path, headers: true) do |row|
+  product = Product.find_by_id(row["id"]) || Product.new
+  product.attributes = row.to_hash.slice(*Product.accessible_attributes)
+  puts "loading #{product.title[0..10]}..."
+  product.save!
+end
+
+puts "LOADED #{Product.all.count} products"
 
 
 
