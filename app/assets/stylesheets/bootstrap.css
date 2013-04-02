@@ -289,6 +289,7 @@ a:hover {
 .navbar-fixed-top .container,
 .navbar-fixed-bottom .container {
   width: 940px;
+  display: inline;
 }
 
 .span12 {
