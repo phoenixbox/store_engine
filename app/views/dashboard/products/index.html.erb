@@ -18,9 +18,9 @@
     <td><%= number_to_currency(product.price/100.0) %></td>
     <td><%= link_to("Edit Product", edit_dashboard_product_path(product)) %></td>
     <td>  <% if product.visible %>
-    <%= link_to("Retire", dashboard_product_path(product), method: 'delete', class:'button') %>
+    <%= link_to("Retire", vizzi_flip_dashboard_products_path(product), method: 'post', class:'button') %>
   <% else %>
-    <%= link_to("Re-Activate", dashboard_product_path(product), method: 'delete', class:'button') %>
+    <%= link_to("Re-Activate", vizzi_flip_dashboard_products_path(product), method: 'post', class:'button') %>
   <% end %></td>
   </tr>
 <% end %>

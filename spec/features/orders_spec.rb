@@ -33,8 +33,8 @@ describe "order page" do
       click_link "Logout"
       visit '/orders/1'
       expect( page ).to_not have_content "Order Confirmation"
-      expect( current_path ).to eq root_path
-      expect( page ).to have_content "Access Denied"
+      expect( current_path ).to eq login_path
+      expect( page ).to have_content "Must Be Logged In"
     end
 
     it "should have a link back to the cart review" do

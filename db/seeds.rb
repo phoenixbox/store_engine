@@ -20,7 +20,6 @@ steve = User.create!(username:"Steve Klabnik", display_name:"SkrilleX", email:"d
 
 file = File.new('./doc/products_for_store_engine.csv')
 
-
 CSV.foreach(file.path, headers: true) do |row|
   product = Product.find_by_id(row["id"]) || Product.new
   product.attributes = row.to_hash.slice(*Product.accessible_attributes)

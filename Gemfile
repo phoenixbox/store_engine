@@ -26,4 +26,5 @@ group :development, :test do
   gem 'rb-fsevent', '~> 0.9'
   gem 'cane'
   gem 'reek'
+  gem 'simplecov'
 end

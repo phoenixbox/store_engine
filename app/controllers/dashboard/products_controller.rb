@@ -35,7 +35,7 @@ class Dashboard::ProductsController < ApplicationController
     redirect_to dashboard_product_path(@product)
   end
 
-  def destroy  #Retiring Products
+  def vizzi_flip  #Retiring Products
     product = Product.find(params[:id])
     if product.visible == true
       flash[:red] = "Turned Off"
@@ -48,13 +48,8 @@ class Dashboard::ProductsController < ApplicationController
   end
 
   def import
-    binding.pry
     Product.import(params[:file])
     redirect_to dashboard_products_path, notice: "Products imported."
   end
-
-  # def retire
-
-  # end
 
 end

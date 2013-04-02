@@ -182,7 +182,7 @@ describe "Shopping Cart" do
       click_link "Add to Cart"
       visit cart_path
       click_link "Checkout"
-      expect(page).to have_content "Cannot purchase"
+      expect(page).to have_content "Must Be Logged In"
     end
   end
 

@@ -28,6 +28,7 @@ StoreEngine::Application.routes.draw do
     resources :orders
     resources :products do
       collection {post :import}
+      collection {post :vizzi_flip}
     end
     # resources :line_items
     resources :categories

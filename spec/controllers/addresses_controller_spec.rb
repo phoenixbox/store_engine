@@ -23,6 +23,7 @@ describe AddressesController do
   # This should return the minimal set of attributes required to create a valid
   # Address. As you add validations to Address, be sure to
   # update the return value of this method accordingly.
+  let!(:user){User.create!(username:"blair@blair.com",password:"blair")}
   def valid_attributes
     { "address_line_1" => "123 Blair St.", "address_line_2"=> "", "city"=> "Denver", "full_name"=> "Blair Anderson", "phone_number"=> "(333)333-3333", "state"=> "CO", "zipcode"=> "80220" }
   end
@@ -36,7 +37,7 @@ describe AddressesController do
 
   describe "GET show" do
     it "assigns the requested address as @address" do
-      address = Address.create! valid_attributes
+      address = user.addresses.create! valid_attributes
       get :show, {:id => address.to_param}, valid_session
       assigns(:address).should eq(address)
     end
@@ -51,7 +52,7 @@ describe AddressesController do
 
   describe "GET edit" do
     it "assigns the requested address as @address" do
-      address = Address.create! valid_attributes
+      address = user.addresses.create! valid_attributes
       get :edit, {:id => address.to_param}, valid_session
       assigns(:address).should eq(address)
     end
@@ -97,7 +98,7 @@ describe AddressesController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested address" do
-        address = Address.create! valid_attributes
+        address = user.addresses.create! valid_attributes
         # Assuming there are no other addresses in the database, this
         # specifies that the Address created on the previous line
         # receives the :update_attributes message with whatever params are
@@ -107,13 +108,13 @@ describe AddressesController do
       end
 
       it "assigns the requested address as @address" do
-        address = Address.create! valid_attributes
+        address = user.addresses.create! valid_attributes
         put :update, {:id => address.to_param, :address => valid_attributes}, valid_session
         assigns(:address).should eq(address)
       end
 
       it "redirects to the address" do
-        address = Address.create! valid_attributes
+        address = user.addresses.create! valid_attributes
         put :update, {:id => address.to_param, :address => valid_attributes}, valid_session
         response.should redirect_to(address)
       end
@@ -121,7 +122,7 @@ describe AddressesController do
 
     describe "with invalid params" do
       it "assigns the address as @address" do
-        address = Address.create! valid_attributes
+        address = user.addresses.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Address.any_instance.stub(:save).and_return(false)
         put :update, {:id => address.to_param, :address => { "full_name" => "invalid value" }}, valid_session
@@ -129,7 +130,7 @@ describe AddressesController do
       end
 
       it "re-renders the 'edit' template" do
-        address = Address.create! valid_attributes
+        address = user.addresses.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Address.any_instance.stub(:save).and_return(false)
         put :update, {:id => address.to_param, :address => { "full_name" => "invalid value" }}, valid_session
@@ -140,7 +141,7 @@ describe AddressesController do
 
   describe "DELETE destroy" do
     it "destroys the requested address" do
-      address = Address.create! valid_attributes
+      address = user.addresses.create! valid_attributes
       expect {
         delete :destroy, {:id => address.to_param}, valid_session
       }.to change(Address, :count).by(-1)

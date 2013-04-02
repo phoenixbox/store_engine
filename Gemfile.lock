@@ -183,6 +183,10 @@ GEM
       rubyzip
       websocket (~> 1.0.4)
     sexp_processor (4.2.0)
+    simplecov (0.7.1)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.7.1)
+    simplecov-html (0.7.1)
     slop (3.4.4)
     sorcery (0.8.1)
       bcrypt-ruby (~> 3.0.0)
@@ -233,6 +237,7 @@ DEPENDENCIES
   roo
   rspec-rails
   sass-rails (~> 3.2.3)
+  simplecov
   sorcery
   sqlite3
   stripe!
