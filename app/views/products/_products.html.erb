@@ -1,6 +1,7 @@
+<div class="">
 <% products.each_with_index do |product,i| %>
-  <div class="span4" id="<%= i+1 %>" style="height:300px;overflow:hidden;">
-    <p><%= link_to product.title, product_path(product) %></p>
-    <%= image_tag(product.photo_url)%>
+  <div class="span3 single_product" id="<%= i+1 %>" style="height:300px;overflow:hidden;">
+    <p><%= link_to(image_tag(product.photo_url), product_path(product)) %></p>
   </div>
 <% end %>
+</div>

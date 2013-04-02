@@ -11,7 +11,10 @@
         width: 400px;
         height: 20px;
         padding: 10px 15px;
-        font-size: 155%;
+        font-size: 90%;
+        margin-top: 10px;
+        margin-left: 75px;
+        margin-right: 35px;
         border-radius: 10px;
         border: 1px solid #ccc;
         outline: 0;
@@ -22,11 +25,17 @@
 </head>
 <body>
 <div class="navbar">
-  <%= logo %>
-  <%= render partial: "layouts/header_nav" %>
+  
+  <div class="container">
+    <%= render partial: "layouts/header_nav" %>
+  </div>
 </div>
-<%= render partial: "layouts/flash_notices" %>
-
+<% if flash %>
+  <%= render partial: "layouts/flash_notices" %>
+<% end %>
+<div class="container">
+  <%= image_tag "https://s3.amazonaws.com/store_engine/2013-01.jpg" %>
+</div>
 <%= yield %>
 
 

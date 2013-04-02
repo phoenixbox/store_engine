@@ -269,9 +269,9 @@ h6 {
     .btn.btn-info:active, .btn.btn-info.active {
       background-color: #2383c4; }
   .btn.btn-danger {
-    background-color: #e74c3c; }
+    background-color: #f58426; }
     .btn.btn-danger:hover, .btn.btn-danger:focus {
-      background-color: #ec7063; }
+      background-color: #ffa35f; }
     .btn.btn-danger:active, .btn.btn-danger.active {
       background-color: #dc2d1b; }
   .btn.btn-success {
@@ -545,7 +545,7 @@ h6 {
   .navbar .nav > li > a {
     padding: 14px 15px 17px; }
     .navbar .nav > li > a:hover {
-      color: #1abc9c; }
+      color: #99e5ff; }
   .navbar .nav li {
     position: relative; }
     .navbar .nav li:hover > ul {
@@ -607,7 +607,7 @@ h6 {
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false); }
 
 .navbar-inverse .navbar-inner {
-  background: #34495e;
+  background: #398bb0;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false); }
 .navbar-inverse .nav > li > a {
   color: white; }
