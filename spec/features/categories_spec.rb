@@ -23,7 +23,7 @@ describe "Categories" do
       a.categories.create(name: "tag1")
       visit categories_path
       click_link "tag1"
-      expect( page ).to have_content "Nalgene"
+      expect( page ).to have_content "1 items"
     end
 
   end

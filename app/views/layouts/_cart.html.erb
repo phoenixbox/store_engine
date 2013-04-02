@@ -9,7 +9,7 @@
     <ul>
       <% @shopping_cart.each do |product,count| %>
       <li>
-        <a href="<%= product_path(product)%>"><%= count %> x <%= product.title.to_s[0..20] %>...</a>
+        <%= link_to "#{count} x #{product.title.to_s[0..20]}...", product_path(product), class:"shopping_cart", id:"shopping_cart" %>
         <ul>
           <li><%= link_to "increase '+1'", cart_path( increase: 1, id: product.id), method: "put", id: "increase_count"  %></li>
           <li><%= link_to "decrease '-1'", cart_path( decrease: 1, id: product.id), method: "put", id: "decrease_count"  %></li>

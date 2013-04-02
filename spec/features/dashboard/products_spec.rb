@@ -16,13 +16,13 @@ describe Product do
       let!(:product) { Product.create(title: "ironing board", price: "100", long_description:"we do ironing boards well") }
 
 
-    it "should show one product" do 
+    xit "should show one product" do 
       Product.create(title: "Nalgene Water Bottle", long_description:"a really strong water bottle", price:"12345", categories_list:"bottle")
       visit '/'
       expect( page ).to have_content "Nalgene Water Bottle"
     end
 
-    it "should show all products" do 
+    xit "should show all products" do 
       Product.create(title: "Macbook Air", long_description:"a really strong water bottle", price:"12345", categories_list:"computer")
       Product.create(title: "Pizza Box", long_description:"a really strong water bottle", price:"12345", categories_list:"pizza")
       visit root_path
@@ -30,13 +30,13 @@ describe Product do
       expect( page ).to have_content "Pizza Box"
     end
 
-    it "product title should link to detail page" do 
+    xit "product title should link to detail page" do 
       Product.create(title: "Nalgene Water Bottle", long_description:"a really strong water bottle", price:"12345", categories_list:"bottle")
       visit '/'
       expect( page ).to have_link "Nalgene Water Bottle"
     end
 
-    it "link to detail page displays details" do
+    xit "link to detail page displays details" do
       Product.create(title: "Nalgene Water Bottle", long_description:"a really strong water bottle", price:"12345", categories_list:"bottle")
       visit '/'
       click_link "Nalgene Water Bottle"
