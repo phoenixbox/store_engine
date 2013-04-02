@@ -1,8 +1,8 @@
 <h1>Customer Order: #<%= @order.id.to_s.rjust(7,"0") %></h1>
 Order Status: <%= @order.status.capitalize %>  |   Updated <%= distance_of_time_in_words_to_now(@order.updated_at) %> ago
 <table border="1">
-<th>Item</th>
-<th>Title</th>
+<th>LineItem</th>
+<th>Product Title</th>
 <th>Quantity</th>
 <th>Unit Price</th>
 <th>Subtotal</th>

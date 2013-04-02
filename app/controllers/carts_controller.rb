@@ -17,6 +17,7 @@ class CartsController < ApplicationController
   private
     def decrease(id,count)
       session[:shopping_cart][id] -= count
+      session[:shopping_cart].delete(id) if session[:shopping_cart][id] < 1
     end
 
     def increase(id,count)
@@ -24,7 +25,7 @@ class CartsController < ApplicationController
     end
 
     def remove(id)
-      session[:shopping_cart][id] = 0
+      session[:shopping_cart].delete(id)
     end
 
 end

@@ -5,16 +5,12 @@ class OrdersController < ApplicationController
   end
 
   def show #how do we redirect when an unauthorized order is requested?
-    if Order.exists?(params[:id])
-      order = Order.find(params[:id])
-      if order != nil && (order.user_id == current_user.id)
-        session[:order_id] = order.id
-        @order = order
-      else
-        flash[:red] = "Access Denied"
-        redirect_to root_path
-      end
+    order = Order.find(params[:id])
+    if order != nil && (order.user_id == current_user.id)
+      session[:order_id] = order.id
+      @order = order
     else
+      flash[:red] = "Access Denied"
       redirect_to root_path
     end
   end
