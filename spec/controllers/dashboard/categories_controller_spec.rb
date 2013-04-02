@@ -31,4 +31,26 @@ describe Dashboard::CategoriesController do
     end
   end
 
+  describe "GET #edit" do 
+    let!(:category) { Category.create(name: "laundry") }
+
+    it "finds the category" do
+      get :edit, id: category.id
+      expect(assigns(:category)).to eq category
+    end
+  end
+
+  describe "PUT #update" do
+    let!(:category) {Category.create(name: "laundry")}
+    let!(:updated_attributes) do
+      {id: category.id, category: { name: "laundry", photo_url: "http://farm2.staticflickr.com/1278/764742538_bb2c9af2ce_z.jpg"}}
+    end
+
+    it "changes the category's photo" do
+      put :update, updated_attributes
+      category.reload
+      expect( category.photo_url ).to eq "http://farm2.staticflickr.com/1278/764742538_bb2c9af2ce_z.jpg"
+    end
+  end
+
 end
