@@ -3,8 +3,9 @@ StoreEngine::Application.routes.draw do
 
 
   root :to => 'products#index'
-  match 'landing_page' => 'products#landing_page'
   
+  match 'landing_page' => 'products#landing_page'
+
   resources :products
   resources :categories
   resources :orders
