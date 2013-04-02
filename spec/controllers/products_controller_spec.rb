@@ -19,4 +19,13 @@ describe ProductsController do
       expect( assigns(:product) ).to eq product
     end
   end
+
+  describe 'GET #panel_items' do
+    let!(:product) { Product.create(title:"product title", description: "product description", price: "1234") }
+
+    it "finds a product" do
+      get :landing_page
+      expect( assigns(:panel_items) ).to eq [product]
+    end
+  end
 end

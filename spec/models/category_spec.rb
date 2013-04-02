@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 describe Category do
-  before(:each) do 
 
-  end
-
-  xit "should be valid" do
-    expect( category ).to be_valid  
+  context "#title" do 
+    let!(:category){Category.create!(name:"laundry")}
+    it "should get the product name" do
+      expect( category.name ).to eq "laundry"  
+    end
   end
 end

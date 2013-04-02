@@ -1,0 +1,4 @@
+<% @panel_items.each do |item| %>
+  <%= image_tag item.photo_url %> 
+<%= link_to "#{item.title.to_s}", item %>
+<% end %>
