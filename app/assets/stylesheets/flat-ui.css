@@ -543,7 +543,7 @@ h6 {
     .navbar .nav > li > ul li ul {
       left: 100%; }
   .navbar .nav > li > a {
-    padding: 14px 15px 17px; }
+    padding: 18px 15px 17px; }
     .navbar .nav > li > a:hover {
       color: #99e5ff; }
   .navbar .nav li {
@@ -607,7 +607,7 @@ h6 {
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false); }
 
 .navbar-inverse .navbar-inner {
-  padding-top: 10px;
+  height: 65px;
   padding-bottom: 10px;
   padding-left: 35px;
   background: #398bb0;
