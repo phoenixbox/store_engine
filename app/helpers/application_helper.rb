@@ -2,7 +2,7 @@ module ApplicationHelper
 
   def logo
     link_to root_path, class:"logo pull-left" do
-      image_tag('logo_reduced.png' )
+      image_tag('logo_reduced.png', :mouseover => "hcd_hover_logo_vector.png" )
     end   
   end
 
