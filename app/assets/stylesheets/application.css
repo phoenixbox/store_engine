@@ -30,13 +30,20 @@
     float: left;
     background-color: #ffffff; 
     border-radius: 6px;
+    vertical-align: middle;
     position: relative;
+    overflow: hidden;
+    line-height: 250px;
 }
 
 #inner_box img {
+    vertical-align: middle;
     padding-left: 20px;
+   /* max-width: 100%;
+    max-height: 100%;*/
     display: inline-block;
-    margin: 0px auto;
+    left: 50%;
+    top: 50%;
 }
 
 #lander_main_3_pan_content {
@@ -52,12 +59,12 @@
     padding: 10px 15px;
     font-size: 90%;
     margin-top: 10px;
-    margin-left: 75px;
-    margin-right: 35px;
+    margin-left: 35px;
+    margin-right: 10px;
     border-radius: 10px;
     border: 1px solid #ccc;
     outline: 0;
-  }
+}
 
   #landing_3_panel_item img {
     display: inline;
@@ -250,3 +257,35 @@ list-style-image:url('sqpurple.gif');
 .ribbon-green:after {
   right: 0;
 }
+
+############################
+
+#left {
+    float: left;
+}
+#right{
+    float: right;
+}
+#center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/************** FORM *****************/
+
+#search-bar {
+    width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#logo {
+    padding-top: 10px;
+    margin-left: 60px;
+}
+
+#nav-menu-items {
+    margin-right: 30px;
+}
+
+

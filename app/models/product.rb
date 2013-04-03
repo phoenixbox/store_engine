@@ -7,6 +7,21 @@ class Product < ActiveRecord::Base
   validates :title, :presence => true
   validates :price, :presence => true
   # validates :description, :presence => true
+  def self.landing_page
+    array =[]
+    array << Product.find_by_model_number("KCH-01312")
+    array << Product.find_by_model_number("KCH-01868")
+    array << Product.find_by_model_number("HMP-02058")
+    array << Product.find_by_model_number("LBG-01165")
+    array << Product.find_by_model_number("LBG-01165")
+    array << Product.find_by_model_number("LBG-01165")
+    array << Product.find_by_model_number("LBG-01165")
+    array << Product.find_by_model_number("LBG-01165")
+    array << Product.find_by_model_number("LBG-01165")
+    array << Product.find_by_model_number("LBG-01165")
+    array << Product.find_by_model_number("LBG-01165")
+    array
+  end
 
   def categories_list
     categories.join(", ")
