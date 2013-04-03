@@ -22,15 +22,15 @@ namespace :build do
     puts "loading hampers category photo..."
 
     shelves = Category.find_by_name("shelves")
-    shelves.update_attributes(photo_url:shelves.products[8].photo_url.to_s)
+    shelves.update_attributes(photo_url:Product.find_by_model_number("SHF-01606").photo_url.to_s)
     puts "loading shelves category photo..."
 
     shelf = Category.find_by_name("shelf")
-    shelf.update_attributes(photo_url:shelf.products.first.photo_url.to_s)
+    shelf.update_attributes(photo_url:Product.find_by_model_number("SHF-02113").photo_url.to_s)
     puts "loading shelf category photo..."
 
     shelving = Category.find_by_name("shelving")
-    shelving.update_attributes(photo_url:shelving.products.first.photo_url.to_s)
+    shelving.update_attributes(photo_url:Product.find_by_model_number("SHF-01450").photo_url.to_s)
     puts "loading shelving category photo..."
 
     storage_accessories = Category.find_by_name("storage-accessories")
