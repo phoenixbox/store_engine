@@ -31,7 +31,7 @@ end
 
 puts "LOADED #{Product.all.count} products"
 
-
+puts "Please run $ rake build:cat_photos"
 
 
 #At least 10 sample orders, with at least two at each stage of fulfillment (pending, shipped, etc)
