@@ -615,6 +615,7 @@ a:hover {
 }
 
 .container {
+  display: block;
   margin-right: auto;
   margin-left: auto;
   *zoom: 1;

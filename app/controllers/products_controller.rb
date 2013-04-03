@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
     if params[:q]
       @products = Product.where(:visible => true).search(params[:q])
     else
-      @products = Product.where(:visible => true).shuffle[0..20]
+      @products = Product.where(:visible => true)
     end
 
   end
@@ -15,10 +15,10 @@ class ProductsController < ApplicationController
 
   def landing_page # put any product or category into the panel items that you want to display on the view
     panel_items = []
-    # panel_items << Category.find(1)
-    panel_items << Product.find(1)
-    # panel_items << Product.find(50)
-    # panel_items << Product.find(100)
+    panel_items << Product.find_by_model_number("LBG-01165")
+    # panel_items << Product.find.limit(3)
+    panel_items << Product.find_by_model_number("LBG-01165")
+    panel_items << Product.find_by_model_number("SFT-01764")
     @panel_items = panel_items
   end
 
