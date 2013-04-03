@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-gem 'sqlite3'
+gem 'pg'
 gem 'jquery-rails'
 gem 'rake'
 gem 'sorcery'
@@ -27,4 +27,5 @@ group :development, :test do
   gem 'cane'
   gem 'reek'
   gem 'simplecov'
+  gem 'sqlite3'
 end
