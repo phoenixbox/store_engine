@@ -1,5 +1,6 @@
 class Dashboard::CategoriesController < ApplicationController
   layout 'dashboard_layout'
+  before_filter :require_login
 
   def index
     @stats = Order.stats

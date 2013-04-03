@@ -33,7 +33,7 @@ StoreEngine::Application.routes.draw do
       collection {post :import}
       collection {post :vizzi_flip}
     end
-    # resources :line_items
+    resources :line_items
     resources :categories
   end
 

@@ -11,6 +11,7 @@ Updated <%= distance_of_time_in_words_to_now(@order.updated_at) %> ago
 <th>Product Title</th>
 <th>Quantity</th>
 <th>Update?</th>
+<th>Remove?</th>
 <th>Unit Price</th>
 <th>Subtotal</th>
   <% @order.line_items.each_with_index do |line_item, i| %>
@@ -18,7 +19,8 @@ Updated <%= distance_of_time_in_words_to_now(@order.updated_at) %> ago
     <td><%= i + 1 %></td>
     <td><%= link_to line_item.product.title, dashboard_product_path(line_item.product) %></td>
     <td>count:<%= line_item.quantity %></td>
-    <td><a href="#">Up</a> | <a href="#">Down</a></td>
+    <td><%= link_to "Up", dashboard_line_item_path(line_item,up:1), method:"PUT" %> | <%= link_to "Down", dashboard_line_item_path(line_item,down:1), method:"PUT" %></td>
+    <td><%= link_to "DESTROY", dashboard_line_item_path(line_item,destroy:true), method:"PUT" %></td>
     <td><%= number_to_currency(line_item.unit_price_cents/100.0) %></td>
     <td><%= number_to_currency(line_item.subtotal/100.0) %></td>
   </tr>
