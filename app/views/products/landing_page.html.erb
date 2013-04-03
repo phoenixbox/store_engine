@@ -5,19 +5,30 @@
 
 <div class="container" id="big_box">
   <div class="container" id="inner_box">
-    <table width="100%" height="100%" align="center" valign="center">
+  <div class="wrapper">
+         <div class="ribbon-wrapper-green"><div class="ribbon-green">SALE</div></div>
+  </div>
+    <span id="panel3_item_name">
+      Kids Storage Bins
+    </span>
   <% image1 = @panel_items[0] %>
   <%= image_tag image1.photo_url, :size => "240x220" %>
-</table>
   </div>
   <div class="container" id="inner_box">
+    <span id="panel3_item_name">
+      Laundry Bags
+    </span>
    <% image1 = @panel_items[1] %>
   <%= image_tag image1.photo_url, :size => "240x220" %>
   </div>
   <div class="container" id="inner_box">
-  <% image1 = @panel_items[2] %>
-  <%= image_tag image1.photo_url, :size => "240x220" %>
+    <span id="panel3_item_name">
+      Kids Storage Bins
+    </span>
+  <% image3 = @panel_items[2] %>
+  <%= image_tag image3.photo_url, :size => "240x220" %>
   </div>
+
 </div>
 
 <div id="lander_middle_marketing">
@@ -78,7 +89,9 @@
       <li>Four</li>
     </div>
     <div id="footer-segment-no-border">
-      
+      <li></li>
+      <li></li>
+      <li></li>
     </div>
   </div>
 </div>
