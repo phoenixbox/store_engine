@@ -18,7 +18,7 @@ namespace :build do
     puts "loading kitchen_accessories category photo..."
 
     hampers = Category.find_by_name("hampers")
-    hampers.update_attributes(photo_url:Products.find_by_model_number("HMP-02060").photo_url.to_s)
+    hampers.update_attributes(photo_url:Product.find_by_model_number("HMP-02060").photo_url.to_s)
     puts "loading hampers category photo..."
 
     shelves = Category.find_by_name("shelves")
