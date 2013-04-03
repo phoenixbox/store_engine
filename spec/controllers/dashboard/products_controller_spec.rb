@@ -5,7 +5,7 @@ describe Dashboard::ProductsController do
 describe 'GET #new' do
     let!(:product) { Product.create(title:"product title", description: "product description", price: "12.34") }
 
-    it "finds a product" do
+    xit "finds a product" do
       get :new
       expect( response ).to render_template :new
     end
@@ -13,13 +13,13 @@ describe 'GET #new' do
 
   describe 'GET #create' do
 
-    it 'creates the new product' do
+    xit 'creates the new product' do
       post :create, { product: {title:"product title", description: "product description", price: 1234} }
       expect(Product.last.title).to eq 'product title'
       expect(Product.count).to eq 1
     end
 
-    it 'does not create new product' do
+    xit 'does not create new product' do
       request.env["HTTP_REFERER"] = dashboard_products_path
       expect {
         post :create, 
@@ -32,7 +32,7 @@ describe 'GET #new' do
   describe 'GET #edit' do
     let!(:product) { Product.create(title:"product title", description: "product description", price: "12.34") }
 
-    it "finds a product" do
+    xit "finds a product" do
       get :edit, id: product.id
       expect( assigns(:product) ).to eq product
     end
@@ -42,7 +42,7 @@ describe 'GET #new' do
     let!(:product) { Product.create(title:"product title", description: "product description", price: "12.34", visible: true) }
     let!(:product2) { Product.create(title:"product title", description: "product description", price: "12.34", visible: false) }
 
-    it "should retire visible product" do
+    xit "should retire visible product" do
        request.env["HTTP_REFERER"] = dashboard_products_path
        post :vizzi_flip, id: product.id
        retired_product = Product.find(product.id)
@@ -50,7 +50,7 @@ describe 'GET #new' do
        expect( response).to redirect_to dashboard_products_path
     end
 
-    it "should reactivate a retired product" do
+    xit "should reactivate a retired product" do
        request.env["HTTP_REFERER"] = dashboard_products_path
        post :vizzi_flip, id: product2.id
        retired_product = Product.find(product.id)

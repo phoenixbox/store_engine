@@ -1,17 +1,19 @@
 class Dashboard::ProductsController < ApplicationController
   before_filter :require_admin
   layout 'dashboard_layout'
-
   
   def index
+    @stats = Order.stats
     @products = Product.all
   end
 
   def show
+    @stats = Order.stats
     @product = Product.find(params[:id])
   end
 
   def new
+    @stats = Order.stats
     @product = Product.new
   end
 
@@ -27,6 +29,7 @@ class Dashboard::ProductsController < ApplicationController
   end
 
   def edit
+    @stats = Order.stats
     @product = Product.find(params[:id])
   end
 

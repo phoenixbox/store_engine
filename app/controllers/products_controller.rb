@@ -6,7 +6,6 @@ class ProductsController < ApplicationController
     else
       @products = Product.where(:visible => true)
     end
-
   end
 
   def show

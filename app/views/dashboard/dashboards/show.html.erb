@@ -1,4 +1,12 @@
-<table border="1" id="dashboard">
+<div class="well">
+  <div class="container">
+    <h4>Order Stats</h4>
+  </div>
+  <div class="container">
+    
+  </div>
+</div>
+<table class="table table-bordered table-hover">
   <th>Order ID</th>
   <th>Status</th>
   <th>Full Name</th>
@@ -6,7 +14,6 @@
   <th>Last Update</th>
   <th>Created At</th>
   <th>Subtotal</th>
-  <th></th>
 <% @orders.each do |order| %>
   <tr>
     <td><%= link_to "Order #{order.id}", dashboard_order_path(order) %></td>
@@ -16,7 +23,6 @@
     <td><%= time_ago_in_words(order.updated_at) %></td>
     <td><%= order.created_at %></td>
     <td><%= number_to_currency(order.subtotal/100.00) %></td>
-    <td><%= link_to "Cancel?", "#" %></td>
   </tr>
 <% end %>
 </table>

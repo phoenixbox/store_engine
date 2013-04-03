@@ -2,14 +2,17 @@ class Dashboard::CategoriesController < ApplicationController
   layout 'dashboard_layout'
 
   def index
+    @stats = Order.stats
     @categories = Category.all
   end
 
   def show
+    @stats = Order.stats
     @category = Category.find(params[:id])
   end
   
   def edit
+    @stats = Order.stats
     @category = Category.find(params[:id])
   end
 
@@ -21,9 +24,6 @@ class Dashboard::CategoriesController < ApplicationController
     else
       render action: "edit"
     end
-  end
-
-  def create
   end
 
 end

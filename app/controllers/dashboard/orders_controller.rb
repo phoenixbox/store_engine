@@ -3,6 +3,7 @@ class Dashboard::OrdersController < ApplicationController
   layout 'dashboard_layout'
 
   def show
+    @stats = Order.stats
     @order = Order.find(params[:id])
   end
 
