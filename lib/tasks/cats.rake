@@ -2,7 +2,7 @@ namespace :build do
   desc "add photos to categories"
   task :cat_photos => :environment do 
     soft_storage = Category.find_by_name("soft-storage")
-    soft_storage.update_attributes(photo_url:soft_storage.products.first.photo_url.to_s)
+    soft_storage.update_attributes(photo_url:Product.find_by_model_number("SFT-02115").photo_url.to_s)
     puts "loading soft_storage category photo..."
 
     hangers = Category.find_by_name("hangers")
@@ -10,19 +10,19 @@ namespace :build do
     puts "loading hangers category photo..."
 
     ironing_board_covers = Category.find_by_name("ironing-board-covers")
-    ironing_board_covers.update_attributes(photo_url:ironing_board_covers.products.first.photo_url.to_s)
+    ironing_board_covers.update_attributes(photo_url:ironing_board_covers.products[4].photo_url.to_s)
     puts "loading ironing_board_covers category photo..."
 
     kitchen_accessories = Category.find_by_name("kitchen-accessories")
-    kitchen_accessories.update_attributes(photo_url:kitchen_accessories.products.first.photo_url.to_s)
+    kitchen_accessories.update_attributes(photo_url:kitchen_accessories.products[1].photo_url.to_s)
     puts "loading kitchen_accessories category photo..."
 
     hampers = Category.find_by_name("hampers")
-    hampers.update_attributes(photo_url:hampers.products.first.photo_url.to_s)
+    hampers.update_attributes(photo_url:Products.find_by_model_number("HMP-02060").photo_url.to_s)
     puts "loading hampers category photo..."
 
     shelves = Category.find_by_name("shelves")
-    shelves.update_attributes(photo_url:shelves.products.first.photo_url.to_s)
+    shelves.update_attributes(photo_url:shelves.products[8].photo_url.to_s)
     puts "loading shelves category photo..."
 
     shelf = Category.find_by_name("shelf")
@@ -42,27 +42,27 @@ namespace :build do
     puts "loading trash_cans category photo..."
 
     carts = Category.find_by_name("carts")
-    carts.update_attributes(photo_url:carts.products.first.photo_url.to_s)
+    carts.update_attributes(photo_url:carts.products[2].photo_url.to_s)
     puts "loading carts category photo..."
 
     garment_racks = Category.find_by_name("garment-racks")
-    garment_racks.update_attributes(photo_url:garment_racks.products.first.photo_url.to_s)
+    garment_racks.update_attributes(photo_url:garment_racks.products[8].photo_url.to_s)
     puts "loading garment_racks category photo..."
 
     ironing_boards = Category.find_by_name("ironing-boards")
-    ironing_boards.update_attributes(photo_url:ironing_boards.products.first.photo_url.to_s)
+    ironing_boards.update_attributes(photo_url:products[1].photo_url.to_s)
     puts "loading ironing_boards category photo..."
 
     laundry_bag = Category.find_by_name("laundry-bag")
-    laundry_bag.update_attributes(photo_url:laundry_bag.products.first.photo_url.to_s)
+    laundry_bag.update_attributes(photo_url:laundry_bag.products[2].photo_url.to_s)
     puts "loading laundry_bag category photo..."
 
     laundry = Category.find_by_name("laundry")
-    laundry.update_attributes(photo_url:laundry.products.first.photo_url.to_s)
+    laundry.update_attributes(photo_url:laundry.products[14].photo_url.to_s)
     puts "loading laundry category photo..."
 
     drying = Category.find_by_name("drying")
-    drying.update_attributes(photo_url:drying.products.first.photo_url.to_s)
+    drying.update_attributes(photo_url:drying.products[24].photo_url.to_s)
     puts "loading drying category photo..."
 
     shoe_storage = Category.find_by_name("shoe-storage")
