@@ -5,7 +5,7 @@ describe "Shopping Cart" do
   context "views" do 
     it "should be on the index page" do
       visit root_path
-      expect( page ).to have_content "Cart"
+      expect( page ).to have_content "0"
     end
 
     let!(:product) { Product.create(title: "ironing board", price: "10000", description:"we do ironing boards well", :categories_list => "laundry") }

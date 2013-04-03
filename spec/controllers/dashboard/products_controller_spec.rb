@@ -59,6 +59,4 @@ describe 'GET #new' do
     end
   end  
 
-
-
 end

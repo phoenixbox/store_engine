@@ -1,5 +1,7 @@
 class Dashboard::ProductsController < ApplicationController
+  before_filter :require_admin
   layout 'dashboard_layout'
+
   
   def index
     @products = Product.all

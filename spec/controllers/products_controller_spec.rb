@@ -25,7 +25,7 @@ describe ProductsController do
 
     it "finds a product" do
       get :landing_page
-      expect( assigns(:panel_items) ).to eq [product]
+      expect( assigns(:panel_items) ).to be
     end
   end
 end
