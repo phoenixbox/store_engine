@@ -1,9 +1,10 @@
 <div class="well">
   <div class="container">
-    <h4>Order Stats</h4>
-  </div>
-  <div class="container">
-    
+        <form method="get" action="/dashboard" >
+           <%= text_field_tag :sort, params[:sort], placeholder:"which status :)", data: {provide: 'typeahead', source:"#{["abandoned", "pending", "cancelled", "paid", "shipped", "returned"]}"} %>
+          <input class="btn" type="submit"/>
+        </form>
+   
   </div>
 </div>
 <table class="table table-bordered table-hover">

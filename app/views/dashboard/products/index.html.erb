@@ -8,23 +8,17 @@
 </br>
 <hr>
 <table border="1">
-<th>Image</th>
 <th>Title</th>
 <th>Price</th>
 <th></th>
 <th></th>
-  <% @products.each_with_index do |product,i| %>
+  <% @products.each do |product| %>
   <tr>
-    <td>
-      <div class="span1" id="<%= i+1 %>">
-        <%= image_tag product.photo_url.to_s %>
-      </div>
-    </td>
     <td><%= link_to product.title, dashboard_product_path(product) %></td>
     <td><%= number_to_currency(product.price/100.0) %></td>
     <td><%= link_to("Edit Product", edit_dashboard_product_path(product)) %></td>
-    <td>  <% if product.visible %>
-    <%= link_to("Retire", vizzi_flip_dashboard_products_path(product), method: 'post', class:'button') %>
+    <td><% if product.visible %>
+    <%= link_to("Retire", vizzi_flip_dashboard_products_path(id:product.id), method: 'post', class:'button') %>
   <% else %>
     <%= link_to("Re-Activate", vizzi_flip_dashboard_products_path(product), method: 'post', class:'button') %>
   <% end %></td>
