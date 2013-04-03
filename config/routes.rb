@@ -2,7 +2,7 @@ StoreEngine::Application.routes.draw do
   resources :addresses
 
 
-  root :to => 'products#index'
+  root :to => 'products#landing_page'
   
   match 'landing_page' => 'products#landing_page'
 

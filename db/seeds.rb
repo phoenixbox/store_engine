@@ -33,57 +33,67 @@ puts "LOADED #{Product.all.count} products"
 
 userlist = [blair, brad, shane, steve, frank, jeff] 
 userlist.each_with_index do |user,i|
-  user.create_cart(data: {i=>i,i+1=>i+1})
+  user.create_cart(data: {i+1=>i+1,i+2=>i+2})
   order = Order.for_user(user)
 end
 
 userlist.each_with_index do |user,i|
-  user.create_cart(data: {i+1=>i+1,i+2=>i+2})
+  user.create_cart(data: {i+2=>i+2,i+3=>i+3})
   order = Order.for_user(user)
 end
 
 order1 = Order.find_by_id(1)
 order1.status = "pending"
 order1.save!
+puts "created order1 with line items"
 
 order2 = Order.find_by_id(2)
 order2.status = "cancelled"
 order2.save!
+puts "created order2 with line items"
 
 order3 = Order.find_by_id(3)
 order3.status = "pending"
 order3.save!
+puts "created order3 with line items"
 
 order4 = Order.find_by_id(4)
 order4.status = "cancelled"
 order4.save!
+puts "created order4 with line items"
 
 order5 = Order.find_by_id(5)
 order5.status = "paid"
 order5.save!
+puts "created order5 with line items"
 
 order6 = Order.find_by_id(6)
 order6.status = "shipped"
 order6.save!
+puts "created order6 with line items"
 
 order7 = Order.find_by_id(7)
 order7.status = "paid"
 order7.save!
+puts "created order7 with line items"
 
 order8 = Order.find_by_id(8)
 order8.status = "returned"
 order8.save!
+puts "created order8 with line items"
 
 order9 = Order.find_by_id(9)
 order9.status = "returned"
 order9.save!
+puts "created order9 with line items"
 
 order10 = Order.find_by_id(10)
 order10.status = "shipped"
 order10.save!
+puts "created order10 with line items"
 
 
-puts "Please run $ rake build:cat_photos"
+puts "\n\nPlease run $ rake build:cat_photos"
 
 
 #At least 10 sample orders, with at least two at each stage of fulfillment (pending, shipped, etc)
