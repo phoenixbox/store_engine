@@ -15,30 +15,41 @@
 #big_box {
     height: 330px;
     width: 900px;
-    border: solid 1px;
+    /*border: solid 1px;*/
     margin-bottom: 5px;
     padding-left: 20px;
     padding-top: 20px;
+    background-color: #e2e2e2;
+    border-radius: 6px;
 }
 
 #inner_box {
     height: 300px;
     width: 280px;
-    border: dashed 1px;
     margin: 5px;
     float: left;
+    background-color: #ffffff; 
+    border-radius: 6px;
+    vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+    line-height: 250px;
 }
 
 #inner_box img {
+    vertical-align: middle;
     padding-left: 20px;
+   /* max-width: 100%;
+    max-height: 100%;*/
     display: inline-block;
-    margin: 0px auto;
+    left: 50%;
+    top: 50%;
 }
 
 #lander_main_3_pan_content {
     height: 330px;
     width: 900px;
-    border: solid 1px;
+/*    border: solid 1px;*/
 }
 
 
@@ -48,26 +59,51 @@
     padding: 10px 15px;
     font-size: 90%;
     margin-top: 10px;
-    margin-left: 75px;
-    margin-right: 35px;
+    margin-left: 35px;
+    margin-right: 10px;
     border-radius: 10px;
     border: 1px solid #ccc;
     outline: 0;
-  }
+}
 
   #landing_3_panel_item img {
     display: inline;
     margin-left: 45px;
     margin-right: 45px;
-    border: solid 1px;
+    /*border: solid 1px;*/
   }
 
    #landing_3_panel_item {
     display: inline;
     width: 105px;
     height: 200px;
-    border: solid 1px;
   }
+
+    #panel3_item_name {
+        text-align: center;
+        height: 50px;
+        width: 278px;
+        padding-top: 25px;
+        padding-right: 5px;
+        line-height: 30px;
+        vertical-align: middle;
+        position: absolute;
+        background: none repeat scroll 0 0 rgba(0,0,0,0.5);
+        /*left: 0;*/
+        color: #fff;
+        font-family: helvetica;
+        font-size: 25px;
+        font-weight: bold;
+        z-index:1;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        bottom: 0;
+    }
+
+    #sale_ribbon {
+        position: absolute;
+        z-index:1;
+    }
 
   /* #landing_3_panel_item_title {
     display: inline;
@@ -85,7 +121,7 @@
 #lander_bottom_big_box {
     height: 620px;
     width: 920px;
-    border: solid 1px;
+    /*border: solid 1px;*/
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -117,7 +153,7 @@
 #lander_bottom_copy {
     height: 75px;
     width: 875px;
-    border: solid 1px;
+    /*border: solid 1px;*/
     margin: 0 auto;
  }
 
@@ -163,3 +199,93 @@
     margin-top: 5px auto;
     display: inline-block;
 }
+
+#footer-segment-no-border ul {
+list-style-image:url('sqpurple.gif');
+}
+
+/************************ Corner Ribbon CSS ************************/
+
+
+.ribbon-wrapper-green {
+  width: 85px;
+  height: 88px;
+  overflow: hidden;
+  position: absolute;
+  top: -3px;
+  right: -3px;
+}
+
+.ribbon-green {
+  font: bold 15px Sans-Serif;
+  color: #333;
+  text-align: center;
+  text-shadow: rgba(255,255,255,0.5) 0px 1px 0px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform:    rotate(45deg);
+  -ms-transform:     rotate(45deg);
+  -o-transform:      rotate(45deg);
+  position: relative;
+  padding: 7px 0;
+  left: -5px;
+  top: 15px;
+  width: 120px;
+  background-color: #BFDC7A;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#BFDC7A), to(#8EBF45)); 
+  background-image: -webkit-linear-gradient(top, #BFDC7A, #8EBF45); 
+  background-image:    -moz-linear-gradient(top, #BFDC7A, #8EBF45); 
+  background-image:     -ms-linear-gradient(top, #BFDC7A, #8EBF45); 
+  background-image:      -o-linear-gradient(top, #BFDC7A, #8EBF45); 
+  color: #6a6340;
+  -webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+  -moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
+  box-shadow:         0px 0px 3px rgba(0,0,0,0.3);
+}
+
+.ribbon-green:before, .ribbon-green:after {
+  content: "";
+  border-top:   3px solid #6e8900;   
+  border-left:  3px solid transparent;
+  border-right: 3px solid transparent;
+  position:absolute;
+  bottom: -3px;
+}
+
+.ribbon-green:before {
+  left: 0;
+}
+.ribbon-green:after {
+  right: 0;
+}
+
+############################
+
+#left {
+    float: left;
+}
+#right{
+    float: right;
+}
+#center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/************** FORM *****************/
+
+#search-bar {
+    width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#logo {
+    padding-top: 10px;
+    margin-left: 60px;
+}
+
+#nav-menu-items {
+    margin-right: 30px;
+}
+
+
