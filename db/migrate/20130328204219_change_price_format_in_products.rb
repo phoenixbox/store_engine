@@ -1,9 +1,11 @@
 class ChangePriceFormatInProducts < ActiveRecord::Migration
   def up
-    change_column :products, :price, :integer
+    remove_column :products, :price
+    add_column :products, :price, :integer
   end
 
   def down
-    change_column :products, :price, :string
+    remove_column :products, :price
+    add_column :products, :price, :string
   end
 end
