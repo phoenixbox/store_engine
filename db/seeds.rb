@@ -30,15 +30,16 @@ CSV.foreach(file.path, headers: true) do |row|
 end
 
 puts "LOADED #{Product.all.count} products"
+
 userlist = [blair, brad, shane, steve, frank, jeff] 
 userlist.each_with_index do |user,i|
-  user.create_cart(data: {i=>i,i+1=>i+1}
-  Order.for_user(user)
+  user.create_cart(data: {i=>i,i+1=>i+1})
+  order = Order.for_user(user)
 end
 
 userlist.each_with_index do |user,i|
-  user.create_cart(data: {i+1=>i+1,i+2=>i+2}
-  Order.for_user(user)
+  user.create_cart(data: {i+1=>i+1,i+2=>i+2})
+  order = Order.for_user(user)
 end
 
 order1 = Order.find_by_id(1)
