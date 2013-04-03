@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  before_filter :shopping_cart, :only => [:show, :index]
+  before_filter :shopping_cart, :only => [:show, :index, :new, :edit]
  
   def require_admin
     if current_user.admin == true
