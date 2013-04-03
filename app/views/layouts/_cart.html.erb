@@ -7,6 +7,7 @@
     </a>
       <%- if @shopping_cart.count > 0 %> 
     <ul>
+      <li><%= quick_pay %></li>
       <% @shopping_cart.each do |product,count| %>
       <li>
         <%= link_to "#{count} x #{product.title.to_s[0..20]}...", product_path(product), class:"shopping_cart", id:"shopping_cart" %>
@@ -16,7 +17,6 @@
         </ul>
       </li>
       <% end %>
-      <li class="divider">.</li>
       <li class="divider">.</li>
       <li>
         <a href="#">Subtotal:$<%= subtotal(@shopping_cart) %></a>
