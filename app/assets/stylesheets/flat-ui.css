@@ -607,9 +607,12 @@ h6 {
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false); }
 
 .navbar-inverse .navbar-inner {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 35px;
   background: #398bb0;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false); }
-.navbar-inverse .nav > li > a {
+.`bar-inverse .nav > li > a {
   color: white; }
 .navbar-inverse .nav .active > a, .navbar-inverse .nav .active > a:hover, .navbar-inverse .nav .active > a:focus {
   background-color: transparent;
@@ -629,7 +632,7 @@ h6 {
   min-width: 8px;
   padding: 0 5px;
   position: absolute;
-  right: -7px;
+  right: 33px;
   text-align: center;
   text-shadow: none;
   top: 8px;

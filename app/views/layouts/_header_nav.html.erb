@@ -2,7 +2,15 @@
   <div class="navbar-inner">
     <div class="nav-collapse collapse">
       <%= logo %>
-      <ul class="nav">
+
+      <div class="pull-left" style="text-align:center">
+        <form method="get" action="/products" >
+        <input id="speech-input-field" placeholder="i'm looking for..." name="q" type="text" x-webkit-speech/>
+        <input class="btn btn-danger" type="submit"/>
+        </form>
+      </div>
+
+      <ul class="nav" id="header_nav_list">
         <li><%# link_to "Products", products_path %></li>
         <li><%= link_to "Categories", categories_path %></li>
         <%= render partial: 'layouts/cart' %>
@@ -21,3 +29,5 @@
 
   </div>
 </div>
+
+<%# text_field_tag :test_type, '', data: {provide: 'typeahead', items:"4", source: "#{Category.all.map{|i|i.name}}"}, class:"span4" %>

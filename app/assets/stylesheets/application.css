@@ -11,3 +11,155 @@
  *= require_self
  *= require_tree .
 */
+
+#big_box {
+    height: 330px;
+    width: 900px;
+    border: solid 1px;
+    margin-bottom: 5px;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+#inner_box {
+    height: 300px;
+    width: 280px;
+    border: dashed 1px;
+    margin: 5px;
+    float: left;
+}
+
+#inner_box img {
+    padding-left: 20px;
+    display: inline-block;
+    margin: 0px auto;
+}
+
+#lander_main_3_pan_content {
+    height: 330px;
+    width: 900px;
+    border: solid 1px;
+}
+
+
+#speech-input-field {
+    width: 400px;
+    height: 20px;
+    padding: 10px 15px;
+    font-size: 90%;
+    margin-top: 10px;
+    margin-left: 75px;
+    margin-right: 35px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: 0;
+  }
+
+  #landing_3_panel_item img {
+    display: inline;
+    margin-left: 45px;
+    margin-right: 45px;
+    border: solid 1px;
+  }
+
+   #landing_3_panel_item {
+    display: inline;
+    width: 105px;
+    height: 200px;
+    border: solid 1px;
+  }
+
+  /* #landing_3_panel_item_title {
+    display: inline;
+    margin-left: 50px;
+    margin-left: 50px;
+  }*/
+#lander_middle_marketing {
+    height: 150px;
+    width: 920px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: #4d4d4d;
+}
+#lander_bottom_big_box {
+    height: 620px;
+    width: 920px;
+    border: solid 1px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 12px;
+}
+  
+#bottom_inner_box {
+    height: 230px;
+    width: 200px;
+    border: dashed 1px;
+    margin: 6px;
+    margin-left: 18px;
+    float: left;
+}
+
+#bottom_inner_box img {
+    display: inline-block;
+    margin: 0px auto;
+}
+
+#lander_top_8 {
+    margin-bottom: 20px;
+}
+
+#lander_bottom_8 {
+    margin-top: 20px;
+}
+
+#lander_bottom_copy {
+    height: 75px;
+    width: 875px;
+    border: solid 1px;
+    margin: 0 auto;
+ }
+
+.footer {
+    height: 140px;
+    width: auto;
+    background: #398bb0;
+    position: relative;
+    text-align: center;
+    bottom: -30px;
+} 
+
+.footer img {
+    float: left;
+    margin-top: 20px;
+} 
+
+#footer-div {
+    height: 140px;
+    width: 900px;
+    margin: 0 auto;
+}
+
+#footer-segment {
+    height: 130px;
+    width: 320px;
+    margin-top: 5px auto;
+    border-right: dashed 1px;
+    border-color: white;
+    display: inline-block;
+}
+
+#footer-segment-no-border {
+    height: 130px;
+    width: 320px;
+    margin-top: 5px auto;
+    display: inline-block;
+}
+
+#footer-segment-logo {
+    height: 130px;
+    width: 200px;
+    margin-top: 5px auto;
+    display: inline-block;
+}

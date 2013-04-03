@@ -2,7 +2,7 @@
   <% if params[:controller] == "products" || params[:controller] == "categories" %>
   <li class="active">
     <a href="<%= cart_path %>" class="">
-      Cart
+      <%= image_tag "cart_icon.png", {:size => "45x45"}%>
       <span class="navbar-unread"><%= @shopping_cart.count %></span>
     </a>
       <%- if @shopping_cart.count > 0 %> 
