@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  before_filter :shopping_cart, :only => [:show, :index, :new, :edit]
+  before_filter :shopping_cart
+  before_filter :search_terms
  
   def require_admin
     if current_user.admin == true
@@ -10,6 +11,10 @@ class ApplicationController < ActionController::Base
       flash[:red] = "Only system administrators may access this page"
       redirect_to login_path
     end
+  end
+
+  def search_terms
+    @search_terms ||= Product.all.map(&:title)
   end
 
   private

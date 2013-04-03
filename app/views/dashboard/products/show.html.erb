@@ -1,17 +1,9 @@
 <div class="">
-
-  <h1><%= @product.title %></h1>
-  
-
-  <p class="lead"><%= image_tag( @product.photo_url ) %></p>
-  <p class="lead"><%= @product.long_description %></p>
-  <p class="lead"><%= number_to_currency(@product.price/100.0) %></p>
-  <p>
-    Categories:
-    <% @product.categories.each do |cat| %>
-      <%= link_to cat.name.capitalize, dashboard_category_path(cat) %>
-    <% end %>
-  </p>
+  <% @product.categories.each do |cat| %>
+    <p>Categories:
+      <%= link_to cat.name.capitalize, dashboard_category_path(cat), class:"label" %>
+    </p>
+  <% end %>
 
   <%= link_to("Edit Product", edit_dashboard_product_path, class:'button') %>
   <% if @product.visible %>
@@ -19,4 +11,28 @@
   <% else %>
     <%= link_to("Re-Activate", dashboard_product_path(@product), method: 'delete', class:'button') %>
   <% end %>
+
+<h3><%= @product.title %></h3>
+<div class="pull-left">
+  <%= image_tag( @product.photo_url ) %>
+</div>
+  <p class="label label-success">MSRP: <%= number_to_currency(@product.price/100.0) %></p><br/>
+  <p class="label label-important">COST: <%= number_to_currency(@product.cost_cents/100.0) %></p><br/>
+  <p class="label label-inverse">Margin: %<%= (@product.margin) %></p>
+  <div class="span6">
+    <dl>
+      <dt>bullet1</dt>
+      <dd><%= @product.bullet1 %></dd>
+      <dt>bullet2</dt>
+      <dd><%= @product.bullet2 %></dd>
+      <dt>bullet3</dt>
+      <dd><%= @product.bullet3 %></dd>
+      <dt>bullet4</dt>
+      <dd><%= @product.bullet4 %></dd>
+      <dt>bullet5</dt>
+      <dd><%= @product.bullet5 %></dd>
+    </dl>
+  </div>
+  <p class="lead"><%= @product.long_description %></p>
+
 </div>

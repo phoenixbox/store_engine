@@ -3,6 +3,10 @@ class Category < ActiveRecord::Base
   has_many :taggings
   has_many :products, through: :taggings
 
+  def to_param
+    "#{id} #{name}".parameterize
+  end
+
   def to_s
     name
   end

@@ -7,6 +7,11 @@ class Product < ActiveRecord::Base
   validates :title, :presence => true
   validates :price, :presence => true
   # validates :description, :presence => true
+
+  def to_param
+    "#{id} #{title}".parameterize
+  end
+  
   def self.landing_page
     array =[]
     array << Product.find_by_model_number("KCH-01312")
@@ -21,6 +26,10 @@ class Product < ActiveRecord::Base
     array << Product.find_by_model_number("LBG-01165")
     array << Product.find_by_model_number("LBG-01165")
     array
+  end
+
+  def margin
+    ((price*1.0 - cost_cents*1.0)/(price*1.0)*100).round(2)
   end
 
   def categories_list

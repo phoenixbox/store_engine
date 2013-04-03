@@ -1,7 +1,6 @@
 StoreEngine::Application.routes.draw do
-  resources :addresses
-
-
+  match "/code" => redirect("https://github.com/blairand/store_engine")
+  
   root :to => 'products#landing_page'
   
   match 'landing_page' => 'products#landing_page'
@@ -9,6 +8,7 @@ StoreEngine::Application.routes.draw do
   resources :products
   resources :categories
   resources :orders
+  resources :addresses
 
   resource :cart
 

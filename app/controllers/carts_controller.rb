@@ -11,7 +11,11 @@ class CartsController < ApplicationController
     if logged_in?
       current_user.cart.update_attributes(data: session[:shopping_cart])
     end
-    redirect_to :back
+    if session[:shopping_cart].count == 0 
+      redirect_to root_path
+    else
+      redirect_to :back
+    end
   end
 
   private

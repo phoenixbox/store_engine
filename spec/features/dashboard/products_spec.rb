@@ -4,7 +4,7 @@ describe Product do
   context "viewing products" do
 
     let!(:admin) {User.create(email: "admin@admin.com", username: "admin", 
-        password: "admin", password_confirmation: "admin", admin: 1)}
+        password: "admin", password_confirmation: "admin", admin: true)}
 
       def login_admin
         visit login_path
@@ -72,7 +72,7 @@ describe Product do
     
     context "editing and updating" do
       let!(:admin) {User.create(email: "admin@admin.com", username: "admin", 
-        password: "admin", password_confirmation: "admin", admin: 1)}
+        password: "admin", password_confirmation: "admin", admin: true)}
 
       def login_admin
         visit login_path
@@ -118,11 +118,18 @@ describe Product do
         expect( current_path ).to eq edit_dashboard_product_path(product)
       end
 
-       it "should link to category detail page" do
+      it "should link to category detail page" do
         login_admin
         visit dashboard_product_path(product)
         click_link "Laundry"
         expect( current_path ).to eq dashboard_category_path(product)
+      end
+
+      it "should put a product on sale" do 
+        login_admin
+        visit dashboard_product_path(product)
+        
+
       end
 
     end

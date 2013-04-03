@@ -27,8 +27,8 @@
         <!-- ************** Center ***************** -->
 
           <form id="search-bar" method="get" action="/products" >
-          <input id="speech-input-field" placeholder="i'm looking for..." name="q" type="text" x-webkit-speech/>
-          <button class="btn btn-danger" type="submit" name="Search">Search</button>
+          <input id="speech-input-field" autocomplete="off" placeholder="i'm looking for..." name="q" type="text" data-provide="typeahead" data-source="<%= @search_terms %>" x-webkit-speech onwebkitspeechchange="onChange()"/>
+          <button class="btn btn-danger" id="submitbutton" type="submit" name="Search">Search</button>
    
         </form>
       </div>
@@ -36,4 +36,8 @@
   </div>
 </div>
 
-<%# text_field_tag :test_type, '', data: {provide: 'typeahead', items:"4", source: "#{Category.all.map{|i|i.name}}"}, class:"span4" %>
+<script type="text/javascript" charset="utf-8">
+    function onChange() {
+        trigger('click');
+    }
+</script>
