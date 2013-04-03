@@ -275,12 +275,12 @@ list-style-image:url('sqpurple.gif');
 
 #search-bar {
     width: 650px;
-    margin-left: auto;
+    margin-left: 300px;
     margin-right: auto;
 }
 
 #logo {
-    padding-top: 10px;
+    padding-top: 8px;
     margin-left: 60px;
 }
 
