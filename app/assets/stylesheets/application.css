@@ -287,5 +287,40 @@ list-style-image:url('sqpurple.gif');
 #nav-menu-items {
     margin-right: 30px;
 }
+#product-title-show {
+  margin-right: 30px;
+  width: 500px;
+  word-wrap: break-word;
+
+}
+#product_big_box {
+    height: 685px;
+    width: 980px;
+    /*border: solid 1px;*/
+    badding-right: 10px;
+    padding-left: 10px;
+    padding-top: 20px;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+}
+#product-bullets {
+  width: 450px;
+  word-wrap: break-word;
+}
+#product-details-top {
+  margin-right: 40px
+  width: 450px;
+}
+#long-description {
+  margin-left: 15px
+}
+#product-img-box img {
+  width: 350px;
+  width: 350px;
+}
+#product-show-top {
+  margin-bottom: 25px;
+}
+
 
 

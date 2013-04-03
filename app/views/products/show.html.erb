@@ -1,16 +1,28 @@
-<div class="">
-
-  <h1><%= @product.title %></h1>
-  
-  <p class="lead"><%= image_tag( @product.photo_url ) %></p>
-  <p class="lead"><%= @product.long_description %></p>
-  <p class="lead">$<%= @product.price / 100.00 %></p>
-  <p>
-    Categories:
+<div class="container well">
+  <div class="container" id="product-show-top">
+    <div class="pull-right" id="product-details-top">
+      <p><h2 id="product-title-show"><%= @product.title %></h2></p>
+      <p class="lead"><strong>$<%= @product.price / 100.00 %></strong></p>
+      <ul id="product-bullets">
+        <li class="lead"><%= @product.bullet1 %></li>
+        <li class="lead"><%= @product.bullet2 %></li>
+        <li class="lead"><%= @product.bullet3 %></li>
+        <li class="lead"><%= @product.bullet4 %></li>
+      </ul>
+    <div>
+      <%= link_to "Add to Cart", "#{cart_path}?increase=1&id=#{@product.id}", :method => "put", class:'btn btn-danger' %>
+    </div>
+    </div>
+    <div class="pull-left" id="product-img-box">
+      <p class="lead"><%= image_tag( @product.photo_url ) %></p>
+    </div>
+  </div>
+  <div>
+    <p class="lead" id="long-description"><%= @product.long_description %></p>
+  </div>
+  <div class="pull-left" style="margin-left: 15px">Categories:
     <% @product.categories.each do |cat| %>
       <%= link_to cat.name, category_path(cat) %>
     <% end %>
-  </p>
-  <%= link_to "Add to Cart", "#{cart_path}?increase=1&id=#{@product.id}", :method => "put", class:'button' %>
-
+  </div>
 </div>
