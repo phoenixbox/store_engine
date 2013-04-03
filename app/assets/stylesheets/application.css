@@ -12,6 +12,10 @@
  *= require_tree .
 */
 
+html,body {
+    height: 100%
+}
+
 #big_box {
     height: 330px;
     width: 900px;
@@ -46,10 +50,30 @@
     top: 50%;
 }
 
+#bottom_inner_box {
+    height: 232px;
+    width: 200px;
+    margin: 5px;
+    float: left;
+    background-color: #ffffff; 
+    border-radius: 6px;
+    vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+    line-height: 200px;
+}
+
+#bottom_inner_box img {
+    vertical-align: middle;
+    display: inline-block;
+    left: 50%;
+    top: 50%;
+}
+
+
 #lander_main_3_pan_content {
     height: 330px;
     width: 900px;
-/*    border: solid 1px;*/
 }
 
 
@@ -100,6 +124,26 @@
         bottom: 0;
     }
 
+    #panel4_item_name {
+        text-align: center;
+        height: 30px;
+        width: 200px;
+        padding-top: 15px;
+        padding-right: 5px;
+        line-height: 20px;
+        vertical-align: middle;
+        position: absolute;
+        background: none repeat scroll 0 0 rgba(0,0,0,0.5);
+        /*left: 0;*/
+        color: #fff;
+        font-family: helvetica;
+        font-size: 20px;
+        z-index:1;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        bottom: 0;
+    }
+
     #sale_ribbon {
         position: absolute;
         z-index:1;
@@ -116,55 +160,74 @@
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
-    background: #4d4d4d;
 }
+
 #lander_bottom_big_box {
     height: 620px;
     width: 920px;
-    /*border: solid 1px;*/
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
     padding-top: 12px;
-}
-  
-#bottom_inner_box {
-    height: 230px;
-    width: 200px;
-    border: dashed 1px;
-    margin: 6px;
-    margin-left: 18px;
-    float: left;
-}
-
-#bottom_inner_box img {
-    display: inline-block;
-    margin: 0px auto;
+    margin-bottom: 5px;
+    padding-left: 20px;
+    padding-top: 20px;
+    background-color: #eeeeee;
+    border-radius: 6px;
 }
 
 #lander_top_8 {
     margin-bottom: 20px;
+    margin-left: 20px;
 }
 
 #lander_bottom_8 {
     margin-top: 20px;
+    margin-left: 20px;
 }
 
 #lander_bottom_copy {
     height: 75px;
     width: 875px;
+    margin-right: 1500px;
     /*border: solid 1px;*/
-    margin: 0 auto;
+    /*margin: 0 auto;*/
  }
 
-.footer {
+ .footer
+{
+position: relative;
+/*margin-top: -150px;  negative value of footer height */
+height: 150px;
+clear:both;
+padding-top:20px;
+color:#fff;
+background: #398bb0;
+}
+
+/*.footer {
     height: 140px;
     width: auto;
     background: #398bb0;
-    position: relative;
     text-align: center;
-    bottom: -30px;
-} 
+    clear: both;
+    line-height: normal;
+    margin: 0;
+    position: relative;
+} */
+
+/*clear: both;
+    border: 1px groove #aaaaaa;
+    background: blue;
+    color: White;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    line-height: normal;
+    margin: 0;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;*/
 
 .footer img {
     float: left;

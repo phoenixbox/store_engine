@@ -14,17 +14,32 @@ class Product < ActiveRecord::Base
   
   def self.landing_page
     array =[]
+    # 0 blue cannisters
     array << Product.find_by_model_number("KCH-01312")
+    # 1 dishes rack
     array << Product.find_by_model_number("KCH-01868")
+    # 2 frog hamper
     array << Product.find_by_model_number("HMP-02058")
-    array << Product.find_by_model_number("LBG-01165")
-    array << Product.find_by_model_number("LBG-01165")
-    array << Product.find_by_model_number("LBG-01165")
-    array << Product.find_by_model_number("LBG-01165")
-    array << Product.find_by_model_number("LBG-01165")
-    array << Product.find_by_model_number("LBG-01165")
-    array << Product.find_by_model_number("LBG-01165")
-    array << Product.find_by_model_number("LBG-01165")
+    # 3 Mini Soft Fabric  Storage Bin, Blue
+    array << Product.find_by_model_number("SFT-02085")
+    # 4 Stainless Steel Step Trash Can with Liner, Red
+    array << Product.find_by_model_number("TRS-02228")
+    # 5 Nested Woven Tote with Liner, Espresso Black
+    array << Product.find_by_model_number("STO-02986")
+    # 6 SHO-01604- Black Shoe Tubes
+    array << Product.find_by_model_number("SHO-01604")
+    # 7 SHO-01599- Deluxe Bamboo Shoe Shelf
+    array << Product.find_by_model_number("SHO-01599")
+    # 8 SFT-02063-Natural Canvas Soft Storage Box
+    array << Product.find_by_model_number("SFT-02063")
+    # 9 SFT-01248 - Drawers For Hanging Organizer, Black
+    array << Product.find_by_model_number("SFT-01248")
+    # 10 KCH-02154 - Steel Mesh Cutlery Utensil Organizer, Silver
+    array << Product.find_by_model_number("KCH-02154")
+    # 11 DRY-01390 -Plastic Clothespins
+    array << Product.find_by_model_number("DRY-01390")
+    # 12 KCH-01080 - Bamboo Kitchen Utensil Caddy
+    array << Product.find_by_model_number("KCH-01080")
     array
   end
 
