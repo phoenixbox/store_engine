@@ -30,6 +30,57 @@ CSV.foreach(file.path, headers: true) do |row|
 end
 
 puts "LOADED #{Product.all.count} products"
+userlist = [blair, brad, shane, steve, frank, jeff] 
+userlist.each_with_index do |user,i|
+  user.create_cart(data: {i=>i,i+1=>i+1}
+  Order.for_user(user)
+end
+
+userlist.each_with_index do |user,i|
+  user.create_cart(data: {i+1=>i+1,i+2=>i+2}
+  Order.for_user(user)
+end
+
+order1 = Order.find_by_id(1)
+order1.status = "pending"
+order1.save!
+
+order2 = Order.find_by_id(2)
+order2.status = "cancelled"
+order2.save!
+
+order3 = Order.find_by_id(3)
+order3.status = "pending"
+order3.save!
+
+order4 = Order.find_by_id(4)
+order4.status = "cancelled"
+order4.save!
+
+order5 = Order.find_by_id(5)
+order5.status = "paid"
+order5.save!
+
+order6 = Order.find_by_id(6)
+order6.status = "shipped"
+order6.save!
+
+order7 = Order.find_by_id(7)
+order7.status = "paid"
+order7.save!
+
+order8 = Order.find_by_id(8)
+order8.status = "returned"
+order8.save!
+
+order9 = Order.find_by_id(9)
+order9.status = "returned"
+order9.save!
+
+order10 = Order.find_by_id(10)
+order10.status = "shipped"
+order10.save!
+
 
 puts "Please run $ rake build:cat_photos"
 
