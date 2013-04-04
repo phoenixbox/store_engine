@@ -407,6 +407,7 @@ list-style-image:url('sqpurple.gif');
     height: 232px;
     width: 200px;
     margin-left: 25px;
+    margin-bottom: 15px;
     float: left;
     background-color: #ffffff; 
     border-radius: 6px;
@@ -444,6 +445,9 @@ list-style-image:url('sqpurple.gif');
     #cat_name a:hover {
        background-color: none;
     }
+    #cat_name a:visited {
+       color: #fff;
+    }
 
 .disabled ,.disabled:hover {
    opacity:1.0;
@@ -457,6 +461,14 @@ list-style-image:url('sqpurple.gif');
 #logo-box {
   width: 250px;
   height: 100px;
+}
+
+#product_banner {
+  margin-bottom: 20px;
+}
+
+#product_detail {
+  padding-top: 20px;
 }
 
 

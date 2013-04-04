@@ -1,14 +1,16 @@
 <div class="container" id="pushdown">
     <% products.each_with_index do |product,i| %>
-  <!-- <div class="container" id="cat_quarter"> -->
     <div class="disabled" id="cat_box">
+      <% if product.discount? %>
+      <div class="ribbon-wrapper-green">
+        <div class="ribbon-green"><%= product.discount %>% off</div>
+      </div>
+      <% end %>
       <span class="disabled" id="cat_name">
-      <%# link_to number_to_currency(product.price), product_path(product), :class => "disabled"%>
-      <%= link_to number_to_currency(product.price/100.0), product_path(product), :class => ""%>
+      <%= link_to number_to_currency(product.price/100.0), product_path(product), :class => "disabled"%>
       </span>
       <%= link_to image_tag(product.photo_url.to_s, {:height => "140px", :class => "disabled"}), product_path(product) %>
     </div>
-    <!-- </div> -->
   <% end %>
 </div>
 
