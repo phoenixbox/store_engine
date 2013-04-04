@@ -142,6 +142,7 @@ html,body {
         border-bottom-left-radius: 6px;
         border-bottom-right-radius: 6px;
         bottom: 0;
+        text-decoration: none;
     }
 
     #sale_ribbon {
@@ -384,6 +385,28 @@ list-style-image:url('sqpurple.gif');
 #product-show-top {
   margin-bottom: 25px;
 }
-
+#login-big-box {
+  margin-top: 35px;
+  width: 600px;
+  border-radius: 6px;
+  padding: 20px;
+  background-color: #f5f5f5
+}
+#thanks-box {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 275px;
+}
+#continue-shopping {
+ text-align: center
+}
+.disabled, .disabled:hover img {
+   opacity:1.0;
+   border: none;
+   background-color: none;
+   box-shadow: none;
+   text-decoration: none;
+   color: white;
+}
 
 

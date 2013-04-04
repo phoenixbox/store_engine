@@ -1,7 +1,15 @@
-<h2>Thanks, you paid <strong><%= number_to_currency(@order.subtotal/100.00) %></strong>!</h2>
+<div class="container well">
+  <div id="thanks-box">
+    <h2>Thanks, you paid <strong><%= number_to_currency(@order.subtotal/100.00) %></strong>!</h2>
 
-<ul>
-  <% @order.line_items.each_with_index do |line_item, i| %>
-    <li>Enjoy <%= line_item.quantity %> <%= link_to line_item.product.title, product_path(line_item.product) %></li>
-  <% end %>
-</ul>
+    <ul>
+      <% @order.line_items.each_with_index do |line_item, i| %>
+        <li>Enjoy <%= line_item.quantity %> <%= link_to line_item.product.title, product_path(line_item.product) %></li>
+      <% end %>
+    </ul>
+    <br/>
+  </div>
+  <p id="continue-shopping">
+    <%= link_to "Continue Shopping", root_path, class: "btn btn-danger"%>
+  </p>
+</div>
