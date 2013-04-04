@@ -17,6 +17,10 @@ class Product < ActiveRecord::Base
     end
   end
 
+  def discounted_price
+    (1-(discount/100.0))*price
+  end
+
   def discount?
     true if promotions.any?(&:active?)
   end

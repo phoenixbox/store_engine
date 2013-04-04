@@ -4,7 +4,6 @@
       <%= link_to cat.name.capitalize, dashboard_category_path(cat), class:"label" %>
     </p>
   <% end %>
-
   <%= link_to("Promote!", new_dashboard_promotion_path(id:@product.id), class:'btn btn-warning') %>
   <%= link_to("Edit Product", edit_dashboard_product_path, class:'btn btn-info') %>
   <% if @product.visible %>
@@ -12,14 +11,26 @@
   <% else %>
     <%= link_to("Re-Activate", dashboard_product_path(@product), method: 'delete', class:'button') %>
   <% end %>
-
+<div>
 <h3><%= @product.title %></h3>
+</div>
+<%= link_to "View StoreFront Product Detail Page", product_path(@product), class:"btn btn-block btn-danger" %>
 <div class="pull-left">
   <%= image_tag( @product.photo_url ) %>
 </div>
   <p class="label label-success">MSRP: <%= number_to_currency(@product.price/100.0) %></p><br/>
   <p class="label label-important">COST: <%= number_to_currency(@product.cost_cents/100.0) %></p><br/>
   <p class="label label-inverse">Margin: %<%= (@product.margin) %></p>
+  <% if @product.promotions.count > 0 %>
+  <div class="">
+    <ul class="unstyled">
+      <li><p class="lead">Product promotions</p></li>
+      <% @product.promotions.each do |promo| %>
+      <li><% "#{promo.id} ending:#{promo.percent}" %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
   <div class="span6">
     <dl>
       <dt>bullet1</dt>
@@ -34,6 +45,8 @@
       <dd><%= @product.bullet5 %></dd>
     </dl>
   </div>
+  <div class="pull-left">
   <p class="lead"><%= @product.long_description %></p>
+  </div>
 
 </div>
