@@ -1,31 +1,39 @@
-<h1>Order Confirmation</h1>
-Order Status: <%= @order.status.capitalize %>  |   Updated <%= distance_of_time_in_words_to_now(@order.updated_at) %> ago
-<% @order.line_items.each_with_index do |line_item, i| %>
-</br>
-<hr>
-  <h5>Item: <%= i + 1 %></h5>
-  <ul>
-    <li>Title: <%= link_to line_item.product.title, product_path(line_item.product) %></li>
-    <li>Quantity: <%= line_item.quantity %></li>
-    <li>Unit Price: <%= number_to_currency(line_item.unit_price_cents/100.0) %></li>
-    <hr>
-    <strong>Subtotal:</strong> <%= number_to_currency(line_item.subtotal/100.0) %>
-  </ul>
+<div class="container well">
+  <h1>Order Confirmation</h1>
+  Order Status: <%= @order.status.capitalize %>  |   Updated <%= distance_of_time_in_words_to_now(@order.updated_at) %> ago
+  <% @order.line_items.each_with_index do |line_item, i| %>
 
-<% end %>
-
-<% if @order.status == "pending" %>
-  <%= form_tag charges_path do %>
-    <article>
-      <label class="amount">
-        <span>Amount: <%= number_to_currency(@order.subtotal/100.00) %></span>
-      </label>
-    </article>
-
-    <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
-            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-description="Cart contents"
-            data-amount="<%= @order.subtotal %>"></script>
+  <hr>
+    <h5>Item: <%= i + 1 %></h5>
+    <ul>
+      <li>Title: <%= link_to line_item.product.title, product_path(line_item.product) %></li>
+      <li>Quantity: <%= line_item.quantity %></li>
+      <li>Unit Price: <%= number_to_currency(line_item.unit_price_cents/100.0) %></li>
+    </br>
+      <strong>Line Item Subtotal:</strong> <%= number_to_currency(line_item.subtotal/100.0) %>
+    </ul>
   <% end %>
-<% end %>
-<%= link_to("Back to Cart", cart_path)%>
+  <hr>
+
+  <div class="pull-left">
+    <% if @order.status == "pending" %>
+      <%= form_tag charges_path do %>
+        <article>
+          <label class="amount">
+            <span><strong><h4>Order Subtotal:</h4></strong> <%= number_to_currency(@order.subtotal/100.00) %></span>
+          </label>
+        </article>
+      </br>
+      </br>
+
+        <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-description="Cart contents"
+                data-amount="<%= @order.subtotal %>"></script>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="pull-right">
+    <%= link_to "Back to Cart", cart_path%>
+  </div>
+</div>
