@@ -7,11 +7,9 @@
   <div class="navbar-inner">
     <div class="nav-collapse collapse">
       <div class="container">
-        <!-- ************** First ***************** -->
         <div id="logo">
         <%= logo %>
         </div>
-        <!-- ************** Second ***************** -->
         <div id="nav-menu-items">
           <ul class="nav pull-right">
             <li><%# link_to "Products", products_path %></li>
@@ -26,12 +24,9 @@
             <% end %>
           </ul>
         </div>
-        <!-- ************** Center ***************** -->
-
           <form id="search-bar" method="get" action="/products" >
           <input id="speech-input-field" autocomplete="off" placeholder="i'm looking for..." name="q" type="text" data-provide="typeahead" data-source="<%= @search_terms %>" x-webkit-speech onwebkitspeechchange="onChange()"/>
           <button class="btn btn-danger" id="submitbutton" type="submit" name="Search">Search</button>
-   
         </form>
       </div>
     </div><!--/.nav-collapse -->

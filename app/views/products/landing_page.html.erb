@@ -4,30 +4,19 @@
 </div>
 
 <div class="container" id="big_box">
+  <% @panel_items[0..2].each do |product| %>
   <div class="container" id="inner_box">
      <div class="ribbon-wrapper-green">
         <div class="ribbon-green">SALE</div>
      </div>
     <span id="panel3_item_name">
-      Storage Cannisters
+      <%= link_to product.title[0..20], product_path(product), :class => "disabled", :id => "panel-links" %>
     </span>
-  <% image1 = @panel_items[0] %>
-  <%= image_tag image1.photo_url, :size => "240x220" %>
+  <%= link_to image_tag(product.photo_url, :size => "240x220"), product_path(product), :class => "disabled" %>
   </div>
-  <div class="container" id="inner_box">
-    <span id="panel3_item_name">
-      Dinner Set Racks
-    </span>
-   <% image1 = @panel_items[1] %>
-  <%= image_tag image1.photo_url, :size => "240x220" %>
-  </div>
-  <div class="container" id="inner_box">
-    <span id="panel3_item_name">
-      Kids Frog Hamper
-    </span>
-  <% image3 = @panel_items[2] %>
-  <%= image_tag image3.photo_url, :size => "240x220" %>
-  </div>
+  <% end %>
+
+  
 
 </div>
 
