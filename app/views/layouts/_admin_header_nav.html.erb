@@ -1,6 +1,7 @@
+<%= link_to "Go Back To Storefront", root_path, class: "btn btn-block"%>
 <div class="header_nav">
   <div class="pull-left">
-    <a class="logo" href="/"><img src="http://www.honeycando.com/images/hcd_logo.gif"></a>
+    <a class="logo" href="/dashboard"><%= image_tag "admin_logo_white_outline.png"%></a>
     <ul id="header">
        <h1><%= params[:controller].gsub(/Dashboard/,"").capitalize %></h1>
     </ul>

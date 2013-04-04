@@ -24,20 +24,11 @@ a {
     color: #000;
   }
   &:hover {
-    color: #fff;
+    color: #666;
     background-color: none;
   }
 }
-a #panel-links {
-  color: #fff;
-  &:visited {
-    color: #fff;
-  }
-  &:hover {
-    color: #000;
-    background-color: none;
-  }
-}
+
 div {
   &.field, &.actions {
     margin-bottom: 10px;

@@ -150,11 +150,6 @@ html,body {
         z-index:1;
     }
 
-  /* #landing_3_panel_item_title {
-    display: inline;
-    margin-left: 50px;
-    margin-left: 50px;
-  }*/
 #lander_middle_marketing {
     height: 150px;
     width: 920px;
@@ -195,42 +190,30 @@ html,body {
     /*margin: 0 auto;*/
  }
 
- .footer
+/* .footer
 {
-position: relative;
-/*margin-top: -150px;  negative value of footer height */
-height: 150px;
-clear:both;
-padding-top:20px;
-color:#fff;
-background: #398bb0;
-}
+  position: relative;
+  margin-top: -150px;  negative value of footer height 
+  height: 150px;
+  clear:both;
+  padding-top:20px;
+  color:#fff;
+  background: #398bb0;
+}*/
 
-/*.footer {
+.footer-hcd {
     height: 140px;
     width: auto;
     background: #398bb0;
     text-align: center;
     clear: both;
     line-height: normal;
-    margin: 0;
+    margin-top: 30px;
     position: relative;
-} */
 
-/*clear: both;
-    border: 1px groove #aaaaaa;
-    background: blue;
-    color: White;
-    padding: 0;
-    text-align: center;
-    vertical-align: middle;
-    line-height: normal;
-    margin: 0;
-    position: fixed;
-    bottom: 0px;
-    width: 100%;*/
+} 
 
-.footer img {
+.footer-hcd img {
     float: left;
     margin-top: 20px;
 } 
@@ -322,8 +305,6 @@ list-style-image:url('sqpurple.gif');
   right: 0;
 }
 
-############################
-
 #left {
     float: left;
 }
@@ -360,7 +341,7 @@ list-style-image:url('sqpurple.gif');
 #product_big_box {
     height: 685px;
     width: 980px;
-    /*border: solid 1px;*/
+    border: solid 1px;
     badding-right: 10px;
     padding-left: 10px;
     padding-top: 20px;
@@ -385,6 +366,7 @@ list-style-image:url('sqpurple.gif');
 #product-show-top {
   margin-bottom: 25px;
 }
+
 #login-big-box {
   margin-top: 35px;
   width: 600px;
@@ -407,6 +389,58 @@ list-style-image:url('sqpurple.gif');
    box-shadow: none;
    text-decoration: none;
    color: white;
+
+/************* Categories Index ************ */
+
+#cat_quarter {
+    margin-bottom: 20px;
+    margin-left: 20px;
 }
 
+#cat_box {
+    height: 232px;
+    width: 200px;
+    margin-left: 25px;
+    float: left;
+    background-color: #ffffff; 
+    border-radius: 6px;
+    vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+    line-height: 200px;
+}
+
+#cat_name {
+        text-align: center;
+        height: 30px;
+        width: 200px;
+        padding-top: 15px;
+        padding-right: 5px;
+        line-height: 20px;
+        vertical-align: middle;
+        position: absolute;
+        background: none repeat scroll 0 0 rgba(0,0,0,0.5);
+        /*left: 0;*/
+        color: #fff;
+        font-family: helvetica;
+        font-size: 20px;
+        z-index:1;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        bottom: 0;
+    }
+
+    #cat_name a {
+        text-decoration: none;
+        font-color: white;
+    }
+
+.disabled ,.disabled:hover {
+   opacity:1.0;
+   box-shadow:none;
+}
+
+#pushdown {
+  margin-top: 40px;
+}
 
