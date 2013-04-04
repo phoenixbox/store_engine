@@ -50,7 +50,7 @@ namespace :build do
     puts "loading garment_racks category photo..."
 
     ironing_boards = Category.find_by_name("ironing-boards")
-    ironing_boards.update_attributes(photo_url:products[1].photo_url.to_s)
+    ironing_boards.update_attributes(photo_url:ironing_boards.products[1].photo_url.to_s)
     puts "loading ironing_boards category photo..."
 
     laundry_bag = Category.find_by_name("laundry-bag")
@@ -70,11 +70,12 @@ namespace :build do
     puts "loading shoe_storage category photo..."
 
     laundry_sorters = Category.find_by_name("laundry-sorters")
-    laundry_sorters.update_attributes(photo_url:laundry_sorters.products.first.photo_url.to_s)
+    laundry_sorters.update_attributes(photo_url:Product.find_by_model_number("SRT-01235").photo_url.to_s)
     puts "loading laundry_sorters category photo..."
 
     laundry_centers = Category.find_by_name("laundry-centers")
-    laundry_centers.update_attributes(photo_url:laundry_centers.products.first.photo_url.to_s)
+    laundry_centers.update_attributes(photo_url:Product.find_by_model_number("SRT-01237").photo_url.to_s)
+    
     puts "loading laundry_centers category photo..."
 
     vacuum_storage = Category.find_by_name("vacuum-storage")
@@ -82,7 +83,7 @@ namespace :build do
     puts "loading vacuum_storage category photo..."
 
     wardrobe = Category.find_by_name("wardrobe")
-    wardrobe.update_attributes(photo_url:wardrobe.products.first.photo_url.to_s)
+    wardrobe.update_attributes(photo_url:Product.find_by_model_number("WRD-02124").photo_url.to_s)
     puts "loading wardrobe category photo..."
 
     closets = Category.find_by_name("closets")

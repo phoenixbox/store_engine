@@ -7,14 +7,16 @@
   <div class="navbar-inner">
     <div class="nav-collapse collapse">
       <div class="container">
+        
         <div id="logo">
-        <%= logo %>
+        <!-- ************** First ***************** -->
+          <%= logo %>
         </div>
         <div id="nav-menu-items">
           <ul class="nav pull-right">
             <li><%# link_to "Products", products_path %></li>
-            <li><%= link_to "Categories", categories_path %></li>
             <%= render partial: 'layouts/cart' %>
+            <li><%= link_to "Categories", categories_path %></li>
             <% if logged_in? %>
                 <li><%= link_to "#{current_user.username.capitalize}'s Account", orders_path %></li>
                 <li><%= link_to "Logout", logout_path %></li>

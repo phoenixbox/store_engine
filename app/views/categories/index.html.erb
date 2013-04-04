@@ -1,7 +1,26 @@
-<h1>Categories List</h1>
-<% @categories.each_with_index do |cat,i| %>
-  <div class="span2" id="<%= i+1 %>" style="height:140px;overflow:hidden;">
-    <p><%= link_to(cat.name, category_path(cat)) %></p>
-    <%= image_tag cat.photo_url.to_s, :height => "140px" %>
+<div class="container">
+  <%= image_tag "CatHeader.png" %>
+</div>
+  <div class="container" id="pushdown">
+      <% @categories.each_with_index do |cat,i| %>
+    <!-- <div class="container" id="cat_quarter"> -->
+      <div class="disabled" id="cat_box">
+        <span class="disabled" id="cat_name">
+        <%= link_to cat.name.capitalize, category_path(cat), :class => "disabled"%>
+        </span>
+        <%= link_to image_tag(cat.photo_url.to_s, {:height => "140px", :class => "disabled"}), category_path(cat) %>
+      </div>
+      <!-- </div> -->
+    <% end %>
   </div>
-<% end %>
+
+</div>
+
+
+
+
+
+
+
+
+
