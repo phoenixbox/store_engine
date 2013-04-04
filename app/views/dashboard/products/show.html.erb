@@ -5,9 +5,10 @@
     </p>
   <% end %>
 
-  <%= link_to("Edit Product", edit_dashboard_product_path, class:'button') %>
+  <%= link_to("Promote!", new_dashboard_promotion_path(id:@product.id), class:'btn btn-warning') %>
+  <%= link_to("Edit Product", edit_dashboard_product_path, class:'btn btn-info') %>
   <% if @product.visible %>
-    <%= link_to("Retire", dashboard_product_path(@product), method: 'delete', class:'button') %>
+    <%= link_to("Retire", dashboard_product_path(@product), method: 'delete', class:'btn') %>
   <% else %>
     <%= link_to("Re-Activate", dashboard_product_path(@product), method: 'delete', class:'button') %>
   <% end %>

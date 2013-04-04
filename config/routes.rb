@@ -4,30 +4,27 @@ StoreEngine::Application.routes.draw do
   root :to => 'products#landing_page'
   
   match 'landing_page' => 'products#landing_page'
+  resource :cart
 
   resources :products
   resources :categories
   resources :orders
   resources :addresses
 
-  resource :cart
 
   match 'cart_confirmation' => 'carts#confirmation'
   resources :users
-
   resources :user_sessions, only: [ :new, :create, :destroy ]
 
   match 'login'  => 'user_sessions#new', :as => 'login'
   match 'logout' => 'user_sessions#destroy', :as => 'logout'
   
   resources :charges
-
   match 'success' => 'orders#success'
-
-  # resource :dashboard
 
   namespace :dashboard do
     root :to => "dashboards#show"
+    resources :promotions
     resources :orders
     resources :products do
       collection {post :import}

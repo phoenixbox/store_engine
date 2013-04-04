@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130403000216) do
+ActiveRecord::Schema.define(:version => 20130403223323) do
 
   create_table "addresses", :force => true do |t|
     t.string   "full_name"
@@ -92,6 +92,18 @@ ActiveRecord::Schema.define(:version => 20130403000216) do
     t.string   "weight"
     t.string   "upc"
   end
+
+  create_table "promotions", :force => true do |t|
+    t.integer  "product_id"
+    t.string   "title"
+    t.integer  "percent"
+    t.date     "start"
+    t.date     "end"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "promotions", ["product_id"], :name => "index_promotions_on_product_id"
 
   create_table "taggings", :force => true do |t|
     t.integer  "category_id"

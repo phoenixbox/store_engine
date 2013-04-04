@@ -1,0 +1,29 @@
+<h5>Current Promo Products</h5>
+<%= link_to 'New Promotion', new_dashboard_promotion_path, class:"btn" %>
+
+<table class="table table-bordered table-hover">
+  <tr>
+    <th>title</th>
+    <th>product</th>
+    <th>percent</th>
+    <th>Start</th>
+    <th>End</th>
+    <th>active</th>
+    <th>expire</th>
+  </tr>
+
+<% @promotions.each do |promo| %>
+  <tr>
+    <td><%= link_to promo.title, dashboard_promotion_path(promo) %></td>
+    <td><%= link_to promo.product.title, dashboard_product_path(promo.product) %></td>
+    <td>%<%= promo.percent %></td>
+    <td><%= promo.start %></td>
+    <td><%= promo.end %></td>
+    <td><%= promo.active? %></td>
+    <td><%= link_to 'Expire', dashboard_promotion_path(promo), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

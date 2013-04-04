@@ -1,0 +1,9 @@
+<%= simple_form_for [:dashboard, @promotion] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :percent %>
+  <%= f.input :product_id, :as => :hidden %>
+ <%# f.input :title, :as => :hidden, :input_html => { :value => "some value" }%>
+  <%= f.input :start %>
+  <%= f.input :end %>
+  <%= f.button :submit %>
+<% end %>

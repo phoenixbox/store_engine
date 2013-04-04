@@ -3,10 +3,23 @@ class Product < ActiveRecord::Base
 
   has_many :taggings
   has_many :categories, through: :taggings
+  has_many :promotions
   belongs_to :line_item
   validates :title, :presence => true
   validates :price, :presence => true
   # validates :description, :presence => true
+
+  def discount
+    if promotions.any?(&:active?)
+      promotions.find(&:active?).percent
+    else
+      0
+    end
+  end
+
+  def discount?
+    true if promotions.any?(&:active?)
+  end
 
   def to_param
     "#{id} #{title}".parameterize

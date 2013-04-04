@@ -8,7 +8,7 @@ gem 'sorcery'
 gem 'pry'
 gem 'unicorn'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
-
+gem 'simple_form'
 gem 'roo'
 
 group :assets do
