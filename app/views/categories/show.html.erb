@@ -1,7 +1,9 @@
-<div class="">
+<div class="container">
 
-  <h1><%= @category.name.to_s.capitalize %> Category: <%= @category.products.count %> items</h1>
+  <h1><%= @category.name.to_s.capitalize %> - <%= @category.products.count %> items</h1>
 
   <%= render partial: "products/products", :locals => { :products => @category.products } %>
 
 </div>
+
+

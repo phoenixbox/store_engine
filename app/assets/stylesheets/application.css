@@ -239,6 +239,12 @@ html,body {
     margin-top: 5px auto;
     display: inline-block;
 }
+#footer-segment-no-border li{
+
+    margin-top: 5px auto;
+    display: inline-block;
+    border: solid 1px;
+}
 
 #footer-segment-logo {
     height: 130px;
@@ -432,7 +438,11 @@ list-style-image:url('sqpurple.gif');
 
     #cat_name a {
         text-decoration: none;
-        font-color: white;
+        font-color: #fff;
+        opacity: 1.0;
+    } 
+    #cat_name a:hover {
+       background-color: none;
     }
 
 .disabled ,.disabled:hover {
@@ -443,4 +453,10 @@ list-style-image:url('sqpurple.gif');
 #pushdown {
   margin-top: 40px;
 }
+
+#logo-box {
+  width: 250px;
+  height: 100px;
+}
+
 

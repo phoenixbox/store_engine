@@ -1,7 +1,15 @@
-<div class="">
-<% products.each_with_index do |product,i| %>
-  <div class="span3 single_product" id="<%= i+1 %>" style="height:300px;overflow:hidden;">
-    <p><%= link_to(image_tag(product.photo_url), product_path(product)) %></p>
-  </div>
-<% end %>
+<div class="container" id="pushdown">
+    <% products.each_with_index do |product,i| %>
+  <!-- <div class="container" id="cat_quarter"> -->
+    <div class="disabled" id="cat_box">
+      <span class="disabled" id="cat_name">
+      <%# link_to number_to_currency(product.price), product_path(product), :class => "disabled"%>
+      <%= link_to number_to_currency(product.price/100.0), product_path(product), :class => ""%>
+      </span>
+      <%= link_to image_tag(product.photo_url.to_s, {:height => "140px", :class => "disabled"}), product_path(product) %>
+    </div>
+    <!-- </div> -->
+  <% end %>
 </div>
+
+
