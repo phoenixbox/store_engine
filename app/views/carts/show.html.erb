@@ -10,15 +10,15 @@
           <%= link_to "+", cart_path( increase: 1, id: product.id), method: "put", class:'button', id: "increase_count"  %>
           <%= link_to "-", cart_path( decrease: 1, id: product.id), method: "put", class:'button', id: "decrease_count"  %></p>
           Unit Price: $<%= product.price / 100.00 %>
+          <hr>
       <% end %>
-
       <div id="cart_subtotal">
         <h4>Subtotal</h4>
-        $<%= subtotal(@shopping_cart) %>
+        <h4>$<%= subtotal(@shopping_cart) %></h4>
       </div>
     <% end %>
 
-      <%=  link_to "Checkout", orders_path, method:"post", class:"pull-right btn" %>
+      <%=  link_to "Checkout", orders_path, method:"post", class:"pull-right btn btn-danger" %>
 
 
 </div>

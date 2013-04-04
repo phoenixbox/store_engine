@@ -10,13 +10,11 @@
         <div class="ribbon-green">SALE</div>
      </div>
     <span id="panel3_item_name">
-      <%= link_to product.title[0..20], product_path(product), :class => "disabled", :id => "panel-links" %>
+      <%= link_to product.title[0..20], product_path(product), :class => "disabled", :style=>'color:#FFFFFF' %>
     </span>
   <%= link_to image_tag(product.photo_url, :size => "240x220"), product_path(product), :class => "disabled" %>
   </div>
   <% end %>
-
-  
 
 </div>
 
@@ -27,71 +25,31 @@
 <!-- ************* 8 Panels *************  -->
 
 <div id="lander_bottom_big_box">
-  
-  <div class="container" id="lander_top_8">
-    <div class="container" id="bottom_inner_box">
-      <span id="panel4_item_name">
-      Storage Bins
-      </span>
-      <% image1 = @panel_items[3] %>
-      <%= image_tag image1.photo_url, :size => "260x240" %>
-    </div>
 
+  <div class="container" id="lander_top_8">
+    <% @panel_items[3..6].each do |product| %>
     <div class="container" id="bottom_inner_box">
       <span id="panel4_item_name">
-      Trash Cans
+      <%= link_to product.title[0..18], product_path(product), :class => "disabled", :style=>'color:#FFFFFF'%>
       </span>
-       <% image1 = @panel_items[4] %>
-      <%= image_tag image1.photo_url, :size => "260x240" %>
+      <%= link_to image_tag(product.photo_url, :size => "260x240"), product_path(product), :class => "disabled" %>
     </div>
-    <div class="container" id="bottom_inner_box">
-      <span id="panel4_item_name">
-      Woven Totes
-      </span>
-      <% image1 = @panel_items[5] %>
-      <%= image_tag image1.photo_url, :size => "260x240" %>
-    </div>
-     <div class="container" id="bottom_inner_box">
-      <span id="panel4_item_name">
-      Utensil Organisers
-      </span>
-      <% image1 = @panel_items[10] %>
-      <%= image_tag image1.photo_url, :size => "260x240" %>
-    </div>
+    <% end %>
   </div>
+
 
   <div id="lander_bottom_copy">
-  <%= image_tag "lower_copy.png" %>
+    <%= image_tag "lower_copy.png" %>
   </div>
 
-  <div class="container" id="lander_bottom_8">
+  <div class="container" id="lander_top_8">
+    <% @panel_items[7..10].each do |product| %>
     <div class="container" id="bottom_inner_box">
       <span id="panel4_item_name">
-      Laundry Accessories
+      <%= link_to product.title[0..18], product_path(product), :class => "disabled", :style=>'color:#FFFFFF'%>
       </span>
-      <% image1 = @panel_items[11] %>
-      <%= image_tag image1.photo_url, :size => "260x240" %>
+      <%= link_to image_tag(product.photo_url, :size => "260x240"), product_path(product), :class => "disabled" %>
     </div>
-    <div class="container" id="bottom_inner_box">
-      <span id="panel4_item_name">
-      Kitchen Utensils
-      </span>
-      <% image1 = @panel_items[12] %>
-      <%= image_tag image1.photo_url, :size => "260x240" %>
-    </div>
-    <div class="container" id="bottom_inner_box">
-      <span id="panel4_item_name">
-      Shoe Racks
-      </span>
-      <% image1 = @panel_items[7] %>
-      <%= image_tag image1.photo_url, :size => "260x240" %>
-    </div>
-    <div class="container" id="bottom_inner_box">
-      <span id="panel4_item_name">
-      Drawer Storage
-      </span>
-      <% image1 = @panel_items[9] %>
-      <%= image_tag image1.photo_url, :size => "260x240" %>
-    </div>
+    <% end %>
   </div>
 </div>
