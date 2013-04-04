@@ -1,11 +1,13 @@
 <div class="container">
-  <h1>Categories List</h1>
-  <table class="table table-bordered table-hover">
+  <%= image_tag "categories.png" %>
+  <table class="table table-striped">
+    <th></th>
     <th>Name</th>
     <th></th>
     <% @categories.each do |cat| %>
       <tr>
-        <td><%= link_to(cat.name, dashboard_category_path(cat)) %></td>
+        <td><%= image_tag(cat.photo_url, :size => "90x100") %></td>
+        <td><h4><%= link_to(cat.name.capitalize, dashboard_category_path(cat)) %></h4></td>
         <td><%= link_to("Edit", edit_dashboard_category_path(cat)) %></td>
       </tr>
     <% end %>
