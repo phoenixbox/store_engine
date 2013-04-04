@@ -4,7 +4,7 @@ class UserSessionsController < ApplicationController
   
   def create
     if login(params[:username], params[:password])
-      redirect_back_or_to(cart_path, message: 'Logged in successfully.')
+      redirect_back_or_to(root_path, message: 'Logged in successfully.')
     else
       flash[:red] = "Login failed."
       redirect_to login_path
