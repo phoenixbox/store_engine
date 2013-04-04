@@ -6,9 +6,11 @@
 <div class="container" id="big_box">
   <% @panel_items[0..2].each do |product| %>
   <div class="container" id="inner_box">
+    <% if product.discount? %>
      <div class="ribbon-wrapper-green">
-        <div class="ribbon-green">SALE</div>
+        <div class="ribbon-green"><%= product.discount %>% off</div>
      </div>
+     <% end %>
     <span id="panel3_item_name">
       <%= link_to product.title[0..20], product_path(product), :class => "disabled", :style=>'color:#FFFFFF' %>
     </span>
@@ -29,6 +31,11 @@
   <div class="container" id="lander_top_8">
     <% @panel_items[3..6].each do |product| %>
     <div class="container" id="bottom_inner_box">
+      <% if product.discount? %>
+       <div class="ribbon-wrapper-green">
+          <div class="ribbon-green"><%= product.discount %>% off</div>
+       </div>
+       <% end %>
       <span id="panel4_item_name">
       <%= link_to product.title[0..18], product_path(product), :class => "disabled", :style=>'color:#FFFFFF'%>
       </span>
@@ -45,6 +52,11 @@
   <div class="container" id="lander_top_8">
     <% @panel_items[7..10].each do |product| %>
     <div class="container" id="bottom_inner_box">
+      <% if product.discount? %>
+       <div class="ribbon-wrapper-green">
+          <div class="ribbon-green"><%= product.discount %>% off</div>
+       </div>
+      <% end %>
       <span id="panel4_item_name">
       <%= link_to product.title[0..18], product_path(product), :class => "disabled", :style=>'color:#FFFFFF'%>
       </span>
