@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe Dashboard::CategoriesController do
+  
+  before :each do 
+    login_user_post()
+  end
 
   describe "GET #index" do
     let!(:categories) { [Category.create(name: "laundry")] }
