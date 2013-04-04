@@ -381,9 +381,12 @@ list-style-image:url('sqpurple.gif');
   background-color: #f5f5f5
 }
 #thanks-box {
+  margin-top: 140px;
+  margin-right: 0px;
   padding-top: 40px;
   padding-bottom: 40px;
-  padding-left: 275px;
+  position: relative;
+  height: 300px;
 }
 #continue-shopping {
  text-align: center
@@ -470,5 +473,12 @@ list-style-image:url('sqpurple.gif');
 #product_detail {
   padding-top: 20px;
 }
+h2#thanks {
+ font-family: 'helvetica', Sans-Serif;
+ color: #00577e;
+ margin-left: 60px;
+}
+
+
 
 
