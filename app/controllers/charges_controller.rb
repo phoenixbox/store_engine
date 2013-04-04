@@ -1,4 +1,5 @@
 class ChargesController < ApplicationController
+  # after_filter just_got_an_order :only => [:create]
 
   def new
     @order = Order.find(session[:order_id])
@@ -17,7 +18,7 @@ class ChargesController < ApplicationController
     end
     charge_user(user,order)
     empty_cart
-    just_got_an_order(order.subtotal)
+    just_got_an_order(order.subtotal) # flowdock
     redirect_to success_path
 
   rescue Stripe::CardError => e

@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
       true
     else
       flash[:red] = "Only system administrators may access this page"
-      redirect_to login_path
+      redirect_to root_path
     end
   end
 
