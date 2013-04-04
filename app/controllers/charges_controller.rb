@@ -29,10 +29,10 @@ class ChargesController < ApplicationController
 private
 
   def just_got_an_order(the_flow)
-    flow = Flowdock::Flow.new(:api_token => "beb2c52c86312bf675fd7c96238c0516", :external_user_name => "SHANEBANANA")
+    flow = Flowdock::Flow.new(:api_token => "beb2c52c86312bf675fd7c96238c0516", :external_user_name => "Honey-Can-Do")
 
       # send message to Chat
-    flow.push_to_chat(:content => "@everyone, GREETINGS FROM SHANE'S BANANA. SOME PERSON JUST ORDERED #{the_flow} BANANAS")
+    flow.push_to_chat(:content => "Someone just submitted an order! $#{the_flow/100.0} ")
   end
 
   def charge_user(user,order)

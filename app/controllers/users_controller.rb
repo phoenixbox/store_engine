@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
+
   # GET /users
   # GET /users.json
   def index
+    :require_admin
     @users = User.all
 
     respond_to do |format|
@@ -75,6 +77,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    :require_admin
     @user = User.find(params[:id])
     @user.destroy
 

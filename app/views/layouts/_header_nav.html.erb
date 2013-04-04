@@ -27,7 +27,7 @@
           </ul>
         </div>
           <form id="search-bar" method="get" action="/products" >
-          <input id="speech-input-field" autocomplete="off" placeholder="i'm looking for..." name="q" type="text" data-provide="typeahead" data-source="<%= @search_terms %>" x-webkit-speech onwebkitspeechchange="onChange()"/>
+          <input id="speech-input-field" style="width:275px" autocomplete="off" placeholder="i'm looking for..." name="q" type="text" data-provide="typeahead" data-source="<%= @search_terms %>" x-webkit-speech onwebkitspeechchange="onChange()"/>
           <button class="btn btn-danger" id="submitbutton" type="submit" name="Search">Search</button>
         </form>
       </div>
