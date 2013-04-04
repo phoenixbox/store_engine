@@ -29,10 +29,13 @@ class ChargesController < ApplicationController
 private
 
   def just_got_an_order(the_flow)
-    flow = Flowdock::Flow.new(:api_token => "beb2c52c86312bf675fd7c96238c0516", :external_user_name => "Honey-Can-Do")
+    flow = Flowdock::Flow.new(
+      :api_token => "d477be69cbe5258ef6875ac8bdf8a91a",
+      :external_user_name => "Honey-Can-Do")
 
       # send message to Chat
-    flow.push_to_chat(:content => "Someone just submitted an order! $#{the_flow/100.0} ")
+    flow.push_to_chat(
+      :content => "Hey @everyone, Someone just submitted an order! #{the_flow} cents ")
   end
 
   def charge_user(user,order)
@@ -49,7 +52,7 @@ private
   def empty_cart
     session[:shopping_cart] = Hash.new(0)
     current_user.cart.data = Hash.new(0)
-    current_user.cart.save! 
+    current_user.cart.save!
   end
 
   def set_stripe_customer_id(token,user)
