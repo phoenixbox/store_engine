@@ -1,3 +1,5 @@
+<%= image_tag "products.png" %>
+<hr>
 <%= link_to "Add Product", new_dashboard_product_path %>
 <hr>
 <h2>Import Products</h2>
@@ -7,13 +9,15 @@
 <% end %>
 </br>
 <hr>
-<table border="1">
+<table class="table table-striped">
+<th>Image</th>
 <th>Title</th>
 <th>Price</th>
 <th></th>
 <th></th>
   <% @products.each do |product| %>
   <tr>
+    <td><%= image_tag(product.photo_url, :size => "90x100") %></td>
     <td><%= link_to product.title, dashboard_product_path(product) %></td>
     <td><%= number_to_currency(product.price/100.0) %></td>
     <td><%= link_to("Edit Product", edit_dashboard_product_path(product)) %></td>
