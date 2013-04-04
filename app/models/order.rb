@@ -35,19 +35,23 @@ class Order < ActiveRecord::Base
   def create_line_items(cart)
     cart.data.each do |id,quantity|
       product = Product.find(id)
-      line_items.create(
-        :product_id       => product.id,
-        :quantity         => quantity, 
-        :unit_price_cents => product.price)
+      if product.discount?
+        line_items.create(
+          :product_id       => product.id,
+          :quantity         => quantity, 
+          :unit_price_cents => product.discounted_price)
+      else
+        line_items.create(
+          :product_id       => product.id,
+          :quantity         => quantity, 
+          :unit_price_cents => product.price)
+      end
+      
     end
   end
 
   def calculate_subtotal
-    result = []
-    self.line_items.each do |line_item|
-      result << line_item.quantity * line_item.unit_price_cents
-    end
-    self.subtotal = result.inject(:+)
+    line_items.map(&:subtotal).reduce(:+)
   end
 
 end
