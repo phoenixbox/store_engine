@@ -17,6 +17,7 @@ class ChargesController < ApplicationController
     end
     charge_user(user,order)
     empty_cart
+    just_got_an_order(order.subtotal)
     redirect_to success_path
 
   rescue Stripe::CardError => e
@@ -26,6 +27,13 @@ class ChargesController < ApplicationController
 
 
 private
+
+  def just_got_an_order(the_flow)
+    flow = Flowdock::Flow.new(:api_token => "beb2c52c86312bf675fd7c96238c0516", :external_user_name => "SHANEBANANA")
+
+      # send message to Chat
+    flow.push_to_chat(:content => "@everyone, GREETINGS FROM SHANE'S BANANA. SOME PERSON JUST ORDERED #{the_flow} BANANAS")
+  end
 
   def charge_user(user,order)
     charge = Stripe::Charge.create(

@@ -10,6 +10,7 @@ gem 'unicorn'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'simple_form'
 gem 'roo'
+gem 'flowdock'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
