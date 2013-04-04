@@ -35,7 +35,7 @@ private
 
       # send message to Chat
     flow.push_to_chat(
-      :content => "Hey @everyone, Someone just submitted an order! #{the_flow} cents ")
+      :content => "Hey @everyone, Someone just submitted an order! $#{the_flow/100.0} ")
   end
 
   def charge_user(user,order)
