@@ -225,7 +225,7 @@ html,body {
 }
 
 #footer-segment {
-    height: 130px;
+    height: 10px;
     width: 320px;
     margin-top: 5px auto;
     border-right: dashed 1px;
