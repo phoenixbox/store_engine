@@ -38,7 +38,7 @@ class Product < ActiveRecord::Base
   def self.landing_page
     result = Product.all.find_all(&:discount?) || result = []
     while result.count < 12
-      result << Product.find((1..490).to_a.sample)
+      result << Product.find_by_id((1..490).to_a.sample)
     end
     result.sort_by{|p|-p.discount}
   end
