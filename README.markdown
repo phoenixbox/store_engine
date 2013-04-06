@@ -2,7 +2,7 @@
 
 ## Welcome to StoreEngine
 
-[our store can be viewed here]('http://honeycando.herokuapp.com')
+[View Our Store](http://honeycando.herokuapp.com/)
 
 
 [The assignment](http://tutorials.jumpstartlab.com/projects/store_engine.html)
