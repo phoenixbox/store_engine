@@ -3,7 +3,14 @@ class ApplicationController < ActionController::Base
   
   before_filter :shopping_cart
   before_filter :search_terms
+  before_filter :page_views
  
+  def page_views
+    session[:page_views] ||= Hash.new(0)
+    session[:total_views] ||= 0
+    session[:total_views] += 1
+  end
+  
   def require_admin
     if current_user.admin == true
       true

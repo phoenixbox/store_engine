@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130403223323) do
+ActiveRecord::Schema.define(:version => 20130406004536) do
 
   create_table "addresses", :force => true do |t|
     t.string   "full_name"
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(:version => 20130403223323) do
     t.string   "height"
     t.string   "weight"
     t.string   "upc"
+    t.integer  "page_views",                      :default => 0
   end
 
   create_table "promotions", :force => true do |t|
