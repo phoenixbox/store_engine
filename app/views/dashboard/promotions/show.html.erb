@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
-
-  <%= @promotion.title %>
-  <%= @promotion.percent %>
-  <%= @promotion.product %>
-  <%= @promotion.start %>
-  <%= @promotion.end %>
-
+<ul>
+  <li>title:<%= @promotion.title %></li>
+  <li>percent:<%= @promotion.percent %></li>
+  <li>Product:<%= @promotion.product.title %></li>
+  <li>Start<%= @promotion.start %></li>
+  <li>End <%= @promotion.end %></li>
+</ul>
 <%= link_to 'Back', dashboard_promotions_path %>

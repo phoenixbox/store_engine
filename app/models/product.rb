@@ -7,6 +7,8 @@ class Product < ActiveRecord::Base
   belongs_to :line_item
   validates :title, :presence => true
   validates :price, :presence => true
+  validates :cost_cents, :presence => true
+
   # validates :description, :presence => true
 
   def increase_view_count
@@ -28,7 +30,11 @@ class Product < ActiveRecord::Base
   end
 
   def discount?
-    true if promotions.any?(&:active?)
+    if promotions.any?(&:active?)
+      true
+    else
+      false
+    end
   end
 
   def to_param
@@ -38,9 +44,17 @@ class Product < ActiveRecord::Base
   def self.landing_page
     result = Product.all.find_all(&:discount?) || result = []
     while result.count < 12
-      result << Product.find_by_id((1..490).to_a.sample)
+      if product = Product.find_by_id((1..Product.all.size).to_a.sample)
+        result << product
+      else
+        result << Product.first
+      end
     end
-    result.sort_by{|p|-p.discount}
+    if result.all?(&:nil?)
+      return []
+    else
+      return result.sort_by{|p|-p.discount}
+    end
   end
 
   def margin

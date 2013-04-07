@@ -1,10 +1,10 @@
-
+<% items = @panel_items%>
 <div class="container">
   <%= image_tag "banner_draft1.png" %>
 </div>
 
 <div class="container" id="big_box">
-  <% @panel_items[0..2].each do |product| %>
+  <% items[0..2].each do |product| %>
   <div class="container" id="inner_box">
     <% if product.discount? %>
      <div class="ribbon-wrapper-green">
@@ -29,7 +29,7 @@
 <div id="lander_bottom_big_box">
 
   <div class="container" id="lander_top_8">
-    <% @panel_items[3..6].each do |product| %>
+    <% items[3..6].each do |product| %>
     <div class="container" id="bottom_inner_box">
       <% if product.discount? %>
        <div class="ribbon-wrapper-green">
@@ -50,7 +50,7 @@
   </div>
 
   <div class="container" id="lander_top_8">
-    <% @panel_items[7..10].each do |product| %>
+    <% items[7..10].each do |product| %>
     <div class="container" id="bottom_inner_box">
       <% if product.discount? %>
        <div class="ribbon-wrapper-green">

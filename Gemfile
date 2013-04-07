@@ -29,4 +29,5 @@ group :development, :test do
   gem 'reek'
   gem 'simplecov'
   gem 'sqlite3'
+  gem 'newrelic_rpm'
 end

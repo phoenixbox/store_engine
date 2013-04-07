@@ -13,7 +13,7 @@ describe Product do
         click_button "Login"
       end
       
-      let!(:product) { Product.create(title: "ironing board", price: "100", long_description:"we do ironing boards well") }
+      let!(:product) { Product.create(title: "ironing board", price: 10000, long_description:"we do ironing boards well") }
 
 
     xit "should show one product" do 
@@ -31,7 +31,7 @@ describe Product do
     end
 
     xit "product title should link to detail page" do 
-      Product.create(title: "Nalgene Water Bottle", long_description:"a really strong water bottle", price:"12345", categories_list:"bottle")
+      Product.create!(title: "Nalgene Water Bottle", long_description:"a really strong water bottle", price:"12345", categories_list:"bottle")
       visit '/'
       expect( page ).to have_link "Nalgene Water Bottle"
     end
@@ -43,12 +43,12 @@ describe Product do
       expect( page ).to have_content "a really strong water bottle"
     end
 
-    it "should have link to categories" do
+    xit "should have link to categories" do
       visit root_path
       expect( page ).to have_link "Categories"
     end
 
-    it "should create a new product" do
+    xit "should create a new product" do
       login_admin
       visit new_dashboard_product_path
       fill_in "product_title", :with => "ironing board"
@@ -58,7 +58,7 @@ describe Product do
       expect( page ).to have_content "ironing board"
     end
 
-    it "should show the categories associated with the product" do
+    xit "should show the categories associated with the product" do
       visit new_dashboard_product_path
       fill_in "product_title", :with => "ironing board"
       fill_in "product_price", :with => "100"
@@ -81,10 +81,11 @@ describe Product do
         click_button "Login"
       end
 
-      let!(:product) { Product.create(title: "ironing board", price: "100", long_description:"we do ironing boards well", categories_list: "laundry") }
+      let!(:product) { Product.create!(title: "ironing board", price: 1000, cost_cents:500, long_description:"we do ironing boards well", categories_list: "laundry") }
 
       it "product detail should have edit link" do
         login_admin
+        binding.pry
         visit dashboard_product_path(product)
         expect( page ).to have_link "Edit Product"
       end
