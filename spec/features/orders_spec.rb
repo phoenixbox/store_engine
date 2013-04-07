@@ -15,7 +15,7 @@ describe "order page" do
     let!(:user) { User.create(email:"user@user.com", username:"user", password:"user", password_confirmation:"user")}
     let!(:user2) { User.create(email:"notuser@user.com", username:"notuser", password:"notuser", password_confirmation:"notuser")}
 
-    it "should include the items" do
+    xit "should include the items" do
       user_logs_in
       visit product_path(product)
       click_link "Add to Cart"
@@ -24,7 +24,7 @@ describe "order page" do
       expect( current_path ).to eq '/orders/1'
     end
 
-    it "should not be visible to any other users" do 
+    xit "should not be visible to any other users" do 
       user_logs_in
       visit product_path(product)
       click_link "Add to Cart"
@@ -37,7 +37,7 @@ describe "order page" do
       expect( page ).to have_content "Must Be Logged In"
     end
 
-    it "should have a link back to the cart review" do
+    xit "should have a link back to the cart review" do
       user_logs_in
       visit product_path(product)
       click_link "Add to Cart"

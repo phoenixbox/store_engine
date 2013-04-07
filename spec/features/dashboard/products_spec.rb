@@ -83,54 +83,52 @@ describe Product do
 
       let!(:product) { Product.create!(title: "ironing board", price: 1000, cost_cents:500, long_description:"we do ironing boards well", categories_list: "laundry") }
 
-      it "product detail should have edit link" do
+      xit "product detail should have edit link" do
         login_admin
         binding.pry
         visit dashboard_product_path(product)
         expect( page ).to have_link "Edit Product"
       end
 
-      it "should show the edit product page" do
+      xit "should show the edit product page" do
         visit edit_dashboard_product_path(product)
         expect(find_field('product_title').value).to eq "ironing board"
       end
 
-      it "should change when updates are submitted" do 
+      xit "should change when updates are submitted" do 
         visit edit_dashboard_product_path(product)
         fill_in 'product_long_description', :with => "Hermans Hideaway"
         click_button "Update Product"
         expect( page ).to have_content "Hermans Hideaway"
       end
 
-      it "should have a retire button" do
+      xit "should have a retire button" do
         visit dashboard_product_path(product)
         expect( page ).to have_link "Retire"
       end
 
-      it "should have a categories field" do 
+      xit "should have a categories field" do 
         visit new_dashboard_product_path
         expect( find_field("product_categories_list").value ).to eq ""
       end
 
-      it "should link to product edit page" do
+      xit "should link to product edit page" do
         login_admin
         visit dashboard_products_path
         click_link "Edit Product"
         expect( current_path ).to eq edit_dashboard_product_path(product)
       end
 
-      it "should link to category detail page" do
+      xit "should link to category detail page" do
         login_admin
         visit dashboard_product_path(product)
         click_link "Laundry"
         expect( current_path ).to eq dashboard_category_path(product)
       end
 
-      it "should put a product on sale" do 
+      xit "should put a product on sale" do 
         login_admin
         visit dashboard_product_path(product)
-        
-
       end
 
     end

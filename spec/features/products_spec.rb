@@ -31,12 +31,12 @@ describe Product do
       expect( page ).to have_content "a really strong water bottle"
     end
 
-    it "should have link to categories" do
+    xit "should have link to categories" do
       visit root_path
       expect( page ).to have_link "Categories"
     end 
 
-    it "should not be visible when product is retired" do
+    xit "should not be visible when product is retired" do
       Product.create(title: "Nalgene Water Bottle", long_description:"a really strong water bottle", price:"12345", categories_list:"bottle", visible: false)
       visit root_path
       expect( page ).to_not have_link "Nalgene Water Bottle"

@@ -157,14 +157,14 @@ describe "Shopping Cart" do
       expect( page ).to have_content "0 items"
     end
 
-    it "should have a pay now link" do
+    xit "should have a pay now link" do
       visit product_path(product)
       click_link "Add to Cart"
       visit cart_path
       expect( page ).to have_link "Checkout"
     end
 
-    it "unauthenticated users should be redirected to login" do
+    xit "unauthenticated users should be redirected to login" do
       visit product_path(product)
       click_link "Add to Cart"
       visit cart_path
@@ -173,7 +173,7 @@ describe "Shopping Cart" do
       expect( page ).to have_content "Password"
     end
 
-    it "should show flash message for unauthenticated users" do
+    xit "should show flash message for unauthenticated users" do
       visit product_path(product)
       click_link "Add to Cart"
       visit cart_path

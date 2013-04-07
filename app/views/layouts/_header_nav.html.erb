@@ -24,8 +24,7 @@
                 <li><%= link_to "#{current_user.username.capitalize}'s Account", orders_path %></li>
                 <li><%= link_to "Logout", logout_path %></li>
             <% else %>
-                <li><a href="#loginModal" role="button" data-toggle="modal">login</a><%# link_to "Login", login_path %></li>
-                
+                <li><a href="#loginModal" role="button" data-toggle="modal">Login</a></li>
                 <li><%= link_to "Sign Up", new_user_path %></li>
             <% end %>
           </ul>
