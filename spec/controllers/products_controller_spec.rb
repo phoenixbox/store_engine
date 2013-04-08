@@ -3,7 +3,7 @@ require 'spec_helper'
 describe ProductsController do 
 
   describe 'GET #index' do 
-      let!(:products) { [ Product.create(title:"producttitle", description: "product description", price: 12345, cost_cents: 6000 ) ] }
+      let!(:products) { [ Product.create!(title:"product title", long_description: "product description", price: 12345, cost_cents: 6000, page_views:0,visible:true ) ] }
 
     it "populates an array of products" do 
       get :index

@@ -5,28 +5,32 @@ describe Order do
     order = Order.new
     expect(order).to_not be_valid
   end
-  let(:user){User.create(email: "admin@admin.com", username: "admin", password: "admin", password_confirmation: "admin")}
-  let(:product){Product.create(title: "Nalgene Water Bottle", long_description:"a really strong water bottle", price:"12345", categories_list:"bottle")}
+  let!(:user){User.create(email: "admin@admin.com", username: "admin", password: "admin", password_confirmation: "admin", admin:true)}
+  let!(:product){Product.create!(
+    title: "Nalgene Water Bottle", 
+    long_description:"a really strong water bottle", 
+    price:12345, 
+    cost_cents:6780, 
+    visible:true)}
 
   describe '.for_user' do
-    xit "creates an order" do
-      cart = user.cart
-      cart.data = {1 => 1, 2 => 3}
+    it "creates an order" do
+      cart = user.create_cart
+      cart.data = {1 => 1}
       order = Order.for_user(user)
       expect(order).to be_kind_of(Order)
     end
 
-    xit "creates an order with the same line items as itself" do
-      Product.stub(:find).and_return(product)
-      user.cart.data = {1 => 1, 2 => 3}
+    it "creates an order with the same line items as itself" do
+      cart = user.create_cart
+      user.cart.data = {1 => 3}
       order = Order.for_user(user)
-      expect(order.line_items.size).to eq 2
+      expect(order.line_items.size).to eq 1
     end
 
-    xit "creates an order attached to the cart's user" do
-      cart = Cart.new
-      cart.user_id = 0
-      order = Order.build_from_cart(cart)
+    it "creates an order attached to the cart's user" do
+      cart = user.create_cart
+      order = Order.for_user(user)
       expect(order.user_id).to eq cart.user_id
     end
   end

@@ -46,17 +46,8 @@ class Order < ActiveRecord::Base
           :quantity         => quantity, 
           :unit_price_cents => product.price)
       end
-      
     end
   end
-
-  # def calculate_subtotal
-  #   result = []
-  #   self.line_items.each do |line_item|
-  #     result << line_item.quantity * line_item.unit_price_cents
-  #   end
-  #   self.subtotal = result.inject(:+)
-  # end
 
   def calculate_subtotal
     self.subtotal = line_items.map(&:subtotal).reduce(:+)

@@ -31,12 +31,12 @@ private
 
   def just_got_an_order(the_flow)
     flow = Flowdock::Flow.new(
-      :api_token => "d477be69cbe5258ef6875ac8bdf8a91a",
-      :external_user_name => "Honey-Can-Do")
+      :api_token => "3f362c1e1985fcae9bf587ff1451232c",
+      :external_user_name => "PooPoo")
 
       # send message to Chat
     flow.push_to_chat(
-      :content => "Hey @everyone, Someone just submitted an order! $#{the_flow/100.0} ")
+      :content => "Hey there!")
   end
 
   def charge_user(user,order)
