@@ -37,6 +37,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     if @user.save
+      UserMailer.signup_confirmation(@user).deliver
       auto_login(@user)
       flash[:green] = 'User was successfully created.' 
       redirect_to root_path
