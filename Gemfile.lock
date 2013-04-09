@@ -67,6 +67,9 @@ GEM
     faraday (0.8.7)
       multipart-post (~> 1.1)
     ffi (1.5.0)
+    figaro (0.6.3)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     flowdock (0.3.0)
       httparty (~> 0.7)
       multi_json
@@ -238,6 +241,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 3.2.1)
   fabrication
+  figaro
   flowdock
   guard-rspec
   jquery-rails

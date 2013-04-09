@@ -12,6 +12,7 @@ gem 'simple_form'
 gem 'roo'
 gem 'flowdock'
 gem 'newrelic_rpm'
+gem 'figaro'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
